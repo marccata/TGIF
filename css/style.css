@@ -1,0 +1,63 @@
+/*
+ * Custom translucent site header
+ */
+
+ body {
+  font-family: 'Work Sans';
+  background-color: #F0EAEA;
+}
+
+/*
+ * Marc's CSS
+ */
+
+.closed-div {
+  display: none;
+}
+
+.open-div {
+  display: block;
+  transition: ease-in-out color .15s;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+.logo {
+ height: 130px;
+ padding-bottom: 10px;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.nav-item a {
+  color: white;
+}
+
+.nav-item a:hover {
+  color: rgb(185, 185, 185);
+  transition: ease-in-out color .15s;
+  text-decoration: none;
+}
+
+.dropdown-item a {
+  color: black;
+}
+
+.dropdown-item a:hover {
+  color: rgb(185, 185, 185);
+  transition: ease-in-out color .15s;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 3.2rem;
+}
