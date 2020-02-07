@@ -1,48 +1,30 @@
 // HOUSE JS
 
-// TESTING CONNECTION WITH JS DATABASE
-// document.getElementById("senate-data").innerHTML = JSON.stringify(data,null,2);
-
 const members = data.results[0].members;
-const senatorData = ['first_name', 'party', 'state', 'seniority', 'votes_with_party_pct'];
-const senatorLastName = ['last_name'];
-const senatorMiddleName = ['middle_name'];
-const senatorUrl = ['url'];
 
-
-function orderData(members) {
-
-    // create a loop to store the members in table rows
+function orderMembers() {
     for (i = 0; i < members.length; i++) {
-        
+
         var createTr = document.createElement("tr");
 
-        // loop to order each senatorData inside a td
-        for (j = 0; j < senatorData.length; j++) {
-            
-            var createTd = document.createElement("td");
+        var createTd1 = document.createElement("td");
+        var createTd2 = document.createElement("td");
+        var createTd3 = document.createElement("td");
+        var createTd4 = document.createElement("td");
+        var createTd5 = document.createElement("td");
 
-            // put first name and last name together
-            if (senatorData[j] == senatorData[0] && members[i][senatorMiddleName[0]]) {
-                var senatorFullName = members[i][senatorData[j]] + ' ' + members[i][senatorMiddleName[0]] + ' ' + members[i][senatorLastName[0]];
-                createTd.innerHTML = senatorFullName.link(members[i][senatorUrl[0]]);
-            } else if (senatorData[j] == senatorData[0]) {
-                var senatorFullName = members[i][senatorData[j]] + ' ' + members[i][senatorLastName[0]];
-                createTd.innerHTML = senatorFullName.link(members[i][senatorUrl[0]]);
-            } else if (senatorData[j] == senatorData[4]){
-                createTd.innerHTML = members[i][senatorData[j]] + '%';
-            } else {
-                createTd.innerHTML = members[i][senatorData[j]];
-            };
-            createTr.appendChild (createTd);
+        var senatorFullName = members[i].first_name + ' ' + members[i].last_name;
+        if (members[i].middle_name) {senatorFullName = members[i].first_name + ' ' + members[i].middle_name + ' ' + members[i].last_name;};
+        
+        createTd1.innerHTML = senatorFullName.link(members[i].url);
+        createTd2.innerHTML = members[i].party;
+        createTd3.innerHTML = members[i].state;
+        createTd4.innerHTML = members[i].seniority;
+        createTd5.innerHTML = members[i].votes_with_party_pct + '%';
 
-        };
 
+        createTr.append(createTd1, createTd2, createTd3, createTd4, createTd5);
         document.getElementById('house-data').appendChild(createTr);
-
     };
-
-
 };
-
-orderData(members);
+orderMembers();

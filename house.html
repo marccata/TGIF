@@ -18,6 +18,9 @@
   <!--Google Fonts-->
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:300&display=swap" rel="stylesheet">
 
+  <!--Favicon-->
+  <link rel="shortcut icon" type="image/png" href="./img/favicon-250x250.webp"/>
+
 </head>
 
 <body>
@@ -38,67 +41,86 @@
             <nav class="navbar">
             <ul class="nav ml-auto">
                 <li class="nav-item">
-                <a class="nav-link active" href="./index.html">Home</a>
+                <a class="nav-link" href="./index.html">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
+                <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Congress 113</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="./senate.html">Senate</a>
                     <a class="dropdown-item" href="./house.html">House</a>
                 </div>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link active" href="#">Another page</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+                    <div class="dropdown-menu">
+                        <a class="nav-link" href="./senate-attendance.html">Senate</a>                        
+                        <a class="dropdown-item" href="./house-attendance.html">House</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link active" href="#">Another page</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
+                    <div class="dropdown-menu">
+                        <a class="nav-link" href="./senate-attendance.html">Senate</a>                        
+                        <a class="dropdown-item" href="#">House</a>
+                    </div>
                 </li>
             </ul>
             </nav>
-        </div>
-
         </div>
 
     </header>
 
 
     <!--Main-->
-    <main class="row">
+    <main class="container-fluid">
+
+        <div class="row">
   
-        <!--Introductory text-->
-        <div class="col-lg-4 p-5">
-            <h2>Congressmen</h2>
-            <p>The major power of the House is to pass federal legislation that affects the entire country, although
-                its bills must also be passed by the Senate and further agreed to by the U.S. President before
-                becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in
-                each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach
-                officials (impeached officials are subsequently tried in the Senate), and to elect the U.S.
-                President in case there is no majority in the Electoral College.</p>
-            <p>Each U.S. state is represented in the House in proportion to its population as measured in the
-                census, but every state is entitled to at least one representative. </p>
+            <!--Introductory text-->
+            <div class="col-lg-4 p-5">
+                <div class="top-line bottom-line">
+                    <h2>Congressmen</h2>
+                    <p>The major power of the House is to pass federal legislation that affects the entire country, although
+                        its bills must also be passed by the Senate and further agreed to by the U.S. President before
+                        becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in
+                        each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach
+                        officials (impeached officials are subsequently tried in the Senate), and to elect the U.S.
+                        President in case there is no majority in the Electoral College.</p>
+                    <p>Each U.S. state is represented in the House in proportion to its population as measured in the
+                        census, but every state is entitled to at least one representative. </p>
+                </div>
+            </div>
+
+
+            <!--Table container-->
+            <div class="col-lg-8 p-5">
+                <table  class="table table-hover  table-responsive{-sm}">
+                    <thead class="thead-black">
+                        <tr>
+                            <th>Senator name</th>
+                            <th>Party</th>
+                            <th>State</th>
+                            <th>Seniority</th>
+                            <th>Votes with party</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tbody id="house-data">
+                    
+                        </tbody>
+                </table>
+            </div>
+
         </div>
 
-
-        <!--Table container-->
-        <div class="col-lg-8">
-            <table  class="table table-bordered table-hover  table-responsive{-sm}">
-                <thead class="thead-light">
-                    <tr>
-                        <th>Senator name</th>
-                        <th>Party</th>
-                        <th>State</th>
-                        <th>Seniority</th>
-                        <th>Votes with party</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tbody id="house-data">
-                
-                    </tbody>
-            </table>
-        </div class="col-lg-8">
-
     </main>
+
+    <!--Footer-->
+  <footer class="container-fluid bg-black pl-5">
+    <div class="col-12">
+      <p class="text-white">©2020 TGIF – All rights reserved</p>
+    </div>
+  </footer>
 
     <!--Bootstrap JS-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -111,10 +133,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
-    <!--My JS-->
-    <!--<script src="./js/main.js"></script>-->
-
-    <!--Senate JS-->
+    <!--House JS-->
     <script src="./js/pro-Congress-113-house.js"></script>
     <script src='./js/house.js'></script>
 

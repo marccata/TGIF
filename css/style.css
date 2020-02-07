@@ -4,7 +4,7 @@
 
  body {
   font-family: 'Work Sans';
-  background-color: #F0EAEA;
+  background-color: #E7E6E4;
 }
 
 /*
@@ -21,8 +21,8 @@
 }
 
 footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 footer p {
@@ -38,6 +38,10 @@ footer p {
   background-color: black;
 }
 
+.dropdown-menu a {
+  color: black !important;
+}
+
 .nav-item a {
   color: white;
 }
@@ -48,10 +52,6 @@ footer p {
   text-decoration: none;
 }
 
-.dropdown-item a {
-  color: black;
-}
-
 .dropdown-item a:hover {
   color: rgb(185, 185, 185);
   transition: ease-in-out color .15s;
@@ -60,4 +60,84 @@ footer p {
 
 h2 {
   font-size: 3.2rem;
+}
+
+.top-line {
+  border-top: black solid 1px;
+  padding-top: 20px;
+}
+
+.bottom-line {
+  border-bottom: black solid 1px;
+  padding-bottom: 20px;
+}
+
+.nav-link {
+  padding: 0px;
+  margin-left: 1.5rem;
+}
+
+.nav-item .active {
+  border-bottom: 1px solid white;
+}
+
+.dropdown-menu {
+  margin-left: 1.5rem;
+}
+
+.thead-black {
+  background-color: black;
+  color: #E7E6E4;
+}
+
+.table-hover tbody tr:hover{
+  background-color: rgb(180, 130, 255);
+} 
+
+.table td {
+  border-top-color: black;
+}
+
+.navbar {
+  padding: 0px;
+}
+
+td a {
+  color: black;
+}
+
+td a:hover {
+  color: black;
+}
+
+th:first-child {
+  border-radius: 40px 0px 0px 40px;
+}
+
+th:last-child {
+  border-radius: 0px 40px 40px 0px;
+}
+
+.table thead th {
+  border: 0px;
+}
+
+.table tr:first-child td {
+  border-top: 0px;
+}
+
+.table tbody+tbody {
+  border-top: 0px;
+}
+
+.btn-tgif {
+  border-radius: 40px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.btn-tgif:hover {
+  background-color: rgb(180, 130, 255);
 }

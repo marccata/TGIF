@@ -18,6 +18,9 @@
   <!--Google Fonts-->
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:300&display=swap" rel="stylesheet">
 
+  <!--Favicon-->
+  <link rel="shortcut icon" type="image/png" href="./img/favicon-250x250.webp"/>
+
 </head>
 
 <body>
@@ -47,12 +50,20 @@
                 <a class="dropdown-item" href="./house.html">House</a>
               </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Another page</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Another page</a>
-            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+              <div class="dropdown-menu">
+                  <a class="nav-link" href="./senate-attendance.html">Senate</a>                        
+                  <a class="dropdown-item" href="#">House</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
+              <div class="dropdown-menu">
+                  <a class="nav-link" href="./senate-attendance.html">Senate</a>                        
+                  <a class="dropdown-item" href="#">House</a>
+              </div>
+          </li>
           </ul>
         </nav>
       </div>
@@ -63,47 +74,44 @@
 
 
   <!--Main-->
-  <main>
+  <main class="container-fluid">
 
     <div class="row">
-      <div class="col-6 p-5">
-        <h2>Openness, accountability, and honesty define government transparency.</h2>  
-        <h3>In a free society, transparency is
-          government's obligation to share information with citizens. It is at the heart of how citizens hold their public
-          officials accountable. Here at TGIF we believe that government should be transparent.</h3>
+      <div class="col-7 p-5">
+        <div class="top-line bottom-line">
+          <h2>Openness, accountability, and honesty define government transparency.</h2>  
+          <h3>In a free society, transparency is
+            government's obligation to share information with citizens. It is at the heart of how citizens hold their public
+            officials accountable. Here at TGIF we believe that government should be transparent.</h3>
+        </div>
       </div>
-      <div class="col-6 p-5">
-        <p>Governments exist to serve the people. Information on how officials conduct the public business and spend
-          taxpayer money must be readily available and easily understood. This transparency allows good and just
-          governance. Transparency promotes accountability and provides information for citizens about what their
-          Government is doing.</p>
-        <p>We also believe that government should be participatory. Public engagement enhances the Government's
-          effectiveness and improves the quality of its decisions. Knowledge is widely dispersed in society, and public
-          officials benefit from having access to that dispersed knowledge. We invite you to use our site to become
-          actively engaged in American government.</p>
-        <p>TGIF works to disclose information in forms that the public can readily find and use. We solicit public
-          feedback to identify information of greatest use to the public.</p>
+
+      <div class="clearfix visible"></div>
+
+      <div class="col-5 p-5">
+        <div class="top-line bottom-line">
+          <p>Governments exist to serve the people. Information on how officials conduct the public business and spend
+            taxpayer money must be readily available and easily understood. This transparency allows good and just
+            governance. Transparency promotes accountability and provides information for citizens about what their
+            Government is doing.</p>
+          <p>We also believe that government should be participatory. Public engagement enhances the Government's
+            effectiveness and improves the quality of its decisions. Knowledge is widely dispersed in society, and public
+            officials benefit from having access to that dispersed knowledge. We invite you to use our site to become
+            actively engaged in American government.</p>
+          <p>TGIF works to disclose information in forms that the public can readily find and use. We solicit public
+            feedback to identify information of greatest use to the public.</p>
+        </div>
       </div>
     </div>
 
+    <div class="col-12 p-5">
+      <button class="btn btn-tgif" type="button" data-toggle="collapse" data-target="#collapseHistory" aria-expanded="false" aria-controls="collapseHistory">
+        Read more
+      </button>
+    </div>
+
     <div class="row">
-      <div class="col-6 p-5">
-        <h2>About Us</h2>
-        <p>Openness, accountability, and honesty define government transparency. In a free society, transparency is
-          government's obligation to share information with citizens. It is at the heart of how citizens hold their public
-          officials accountable. Here at TGIF we believe that government should be transparent.</p>
-        <p>Governments exist to serve the people. Information on how officials conduct the public business and spend
-          taxpayer money must be readily available and easily understood. This transparency allows good and just
-          governance. Transparency promotes accountability and provides information for citizens about what their
-          Government is doing.</p>
-        <p>We also believe that government should be participatory. Public engagement enhances the Government's
-          effectiveness and improves the quality of its decisions. Knowledge is widely dispersed in society, and public
-          officials benefit from having access to that dispersed knowledge. We invite you to use our site to become
-          actively engaged in American government.</p>
-        <p>TGIF works to disclose information in forms that the public can readily find and use. We solicit public
-          feedback to identify information of greatest use to the public.</p>
-      </div>
-      <div class="col-6 p-5">
+      <div class="col-6 p-5 collapse" id="collapseHistory">
         <h3>Background History of Government Transparency</h3>
         <p>In the West, the idea that government should be open to public scrutiny and susceptible to public opinion dates
           back at least to the time of the Enlightenment, when many philosophes made an attack on absolutist doctrine of
@@ -187,8 +195,10 @@
   </main>
 
   <!--Footer-->
-  <footer class="bg-black p-3">
-    <p class="text-white">©2020 TGIF – All rights reserved</p>
+  <footer class="container-fluid bg-black pl-5">
+    <div class="col-12">
+      <p class="text-white">©2020 TGIF – All rights reserved</p>
+    </div>
   </footer>
 
   <!--Bootstrap JS-->
