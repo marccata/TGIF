@@ -119,6 +119,18 @@ th:last-child {
   border-radius: 0px 40px 40px 0px;
 }
 
+tbody td:first-child, thead th:first-child{
+  padding-left: 20px;
+}
+
+tbody td:first-child {
+  border-radius: 40px 0px 0px 40px;
+}
+
+tbody td:last-child {
+  border-radius: 0px 40px 40px 0px;
+}
+
 .table thead th {
   border: 0px;
 }
@@ -141,4 +153,17 @@ th:last-child {
 
 .btn-tgif:hover {
   background-color: rgb(180, 130, 255);
+}
+
+.filters-row {
+  border: 1px solid black;
+  border-radius: 40px;
+  padding: .5rem;
+  margin-bottom: 40px;
+}
+
+.inline-flex {
+  display: inline-flex;
+  margin-bottom: 0px;
+  padding-left: .5rem;
 }
