@@ -97,21 +97,24 @@
             <!--Table container-->
             <div class="col-lg-8 p-5">
 
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkRepublicans" value="republicans" checked>
-                    <label class="form-check-label" for="checkRepublicans">Republicans</label>
+                <div class="filters-row">
+                    <p class="inline-flex">Filter by</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="checkRepublicans" value="republicans" checked>
+                        <label class="form-check-label" for="checkRepublicans">Republicans</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="checkDemocrats" value="democrats" checked>
+                        <label class="form-check-label" for="checkDemocrats">Democrats</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="checkIndependents" value="independents" checked>
+                        <label class="form-check-label" for="checkIndependents">Independents</label>
+                    </div>
+                    <select class="form-control-sm" id="stateDropdown">
+                        <option>All states</option>
+                    </select>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkDemocrats" value="democrats" checked>
-                    <label class="form-check-label" for="checkRepublicans">Democrats</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkIndependents" value="independents" checked>
-                    <label class="form-check-label" for="checkRepublicans">Independents</label>
-                </div>
-                <select class="form-control-sm" id="stateDropdown">
-                    <option>All states</option>
-                </select>
 
                 <table  class="table table-hover  table-responsive{-sm}">
                     <thead class="thead-black">
@@ -152,7 +155,6 @@
     </script>
 
     <!--House JS-->
-    <script src="./js/pro-Congress-113-house.js"></script>
     <script src='./js/congress113.js'></script>
 
 </body>

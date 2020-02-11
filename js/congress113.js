@@ -1,11 +1,29 @@
-// SENATE JS
-const members = data.results[0].members;
+// GET DATA AND CALL PAGE FUNCTIONS AFTER DATA IS LOADED
+    // KNOW THE HTML PAGE NAME
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    // CHANGE DATA ROOT DEPENDING OF THE HTML PAGE THE CALL IS COMING FROM
+    if (page == "senate.html") {url = "https://api.propublica.org/congress/v1/113/senate/members.json";};
+    if (page == "house.html") {url = "https://api.propublica.org/congress/v1/113/house/members.json";};
+    // GET DATA AND SET THE MEMEBERS ARRAY
+    var members = '';
+    fetch(url, {
+        method: "GET",
+        headers: {
+        "X-API-Key": "ZRqqZyse9eb9miTFvaBJFfBegzzOTxz3OpxknxxO"
+        }
+    }).then(res => {
+        return res.json();
+    }).then(data => {
+        const newData = data.results[0].members;
+        members = newData;
+        print(members);
+        knowStates(members);
+    });
 
-// FUNCTION CALLS
-print(members);
-knowStates();
 
-// FUNCTION TO CREATE TABLE IN HTML
+
+// FUNCTION TO PRINT TABLE IN HTML
 function print(members) {
     var tbody = document.getElementById('tbody-data');
     tbody.innerHTML = '';
@@ -42,7 +60,6 @@ function filter() {
     // KNOW INDEX FILTER OF STATE DROPDOWN
     var dropdown = document.getElementById("stateDropdown");
     var index = dropdown.selectedIndex;
-
     // NOW FILTER MEMBERS BY STATE AND PUSH INTO NEW ARRAY
     var stateMembers = [];
     for (j = 0; j < members.length; j++) {
@@ -55,49 +72,40 @@ function filter() {
             stateMembers.push(members[j]);
         }        
     }; 
-
-    // TODO LLUIS FIX? SINO PUC REPETIR TOT EL CODI DINS DE IF I ELSE PERO CAMBIANT LA PROPIETAT CHECKED. PERO ES REPETEIX MOLT CODI
     // IN CASE THAT THE THREE CHECKBOXES ARE OFF, SHOW ALL THE TABLE MEMBERS
     checkRepublicans = document.getElementById('checkRepublicans');
     checkDemocrats = document.getElementById('checkDemocrats');
     checkIndependents = document.getElementById('checkIndependents');
-    if (checkRepublicans.checked == false && checkDemocrats.checked == false && checkIndependents.checked == false) { 
-        checkRepublicans.checked = true;
-        checkDemocrats.checked = true;
-        checkIndependents.checked = true;
-        filterMembers();
+    var filteredMembers = [];
+
+    for (i = 0; i < stateMembers.length; i++) {
+        if (checkRepublicans.checked && stateMembers[i].party == "R") {
+            filteredMembers.push(stateMembers[i]);
+        } 
+        if (checkDemocrats.checked && stateMembers[i].party == "D") {
+            filteredMembers.push(stateMembers[i]);
+        }
+        if (checkIndependents.checked && stateMembers[i].party == "I") {
+            filteredMembers.push(stateMembers[i]);
+        } 
+        // IF THE THREE CHECKBOXES ARE UNCHECKEC, SHOW ALL MEMBERS
+        if (!checkRepublicans.checked && !checkDemocrats.checked && !checkIndependents.checked) {
+            filteredMembers.push(stateMembers[i]);
+        }
     }
-    else { 
-        filterMembers();
-    };
-    function filterMembers() {
-        // THIS FOR SHOULD WORK OVER THE NEW MEMBERS ARRAY, NOT THE ORIGINAL ARRAY
-        var filteredMembers = [];
-        for (i = 0; i < stateMembers.length; i++) {
-            if (checkRepublicans.checked && stateMembers[i].party == "R") {
-                filteredMembers.push(stateMembers[i]);
-            } 
-            if (checkDemocrats.checked && stateMembers[i].party == "D") {
-                filteredMembers.push(stateMembers[i]);
-            }
-            if (checkIndependents.checked && stateMembers[i].party == "I") {
-                filteredMembers.push(stateMembers[i]);
-            } 
-        }
-        // IF WE HAVE RESULTS PRINT RESULTS IN A TABLE
-        if (filteredMembers !== 0) {
-            print(filteredMembers);
-        }
-        // IF WE DON'T HAVE RESULTS SHOW EMPTY MESSAGE
-        if (filteredMembers == 0) {
-            document.getElementById('tbody-data').innerHTML = 'Your filters do not have a match';
-        }
-    };
+    // IF WE HAVE RESULTS PRINT RESULTS IN A TABLE
+    if (filteredMembers !== 0) {
+        print(filteredMembers);
+    }
+    // IF WE DON'T HAVE RESULTS SHOW EMPTY MESSAGE
+    if (filteredMembers == 0) {
+        document.getElementById('tbody-data').innerHTML = 'Your filters do not have a match';
+    }    
 };
 
 
 // FUNCTION TO KNOW HOW MANY STATES THERE ARE IN US (BASED ON MEMBERS EXISTANCE)
-function knowStates() {
+function knowStates(members) {
     // PUT ALL THE STATES IN THE ARRAY
     var statesList = [];
     let div = [];
