@@ -1,16 +1,13 @@
-/*
- * Custom translucent site header
- */
-
- body {
+body {
   font-family: 'Work Sans';
   background-color: #E7E6E4;
   font-weight: 300;
+  font-size: .9rem;
 }
 
-/*
- * Marc's CSS
- */
+p {
+  margin-bottom: 0px;
+}
 
 .closed-div {
   display: none;
@@ -60,7 +57,7 @@ footer p {
 }
 
 h2 {
-  font-size: 3.2rem;
+  font-size: 4rem;
 }
 
 .top-line {
@@ -86,6 +83,26 @@ h2 {
   margin-left: 1.5rem;
 }
 
+.navbar {
+  padding: 0px;
+}
+
+/********* HOME BUTTON *********/
+
+.btn-tgif {
+  border-radius: 40px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.btn-tgif:hover {
+  background-color: rgb(180, 130, 255);
+}
+
+/********* TABLE CUSTOMIZATION *********/
+
 .thead-black {
   background-color: black;
   color: #E7E6E4;
@@ -93,14 +110,16 @@ h2 {
 
 .table-hover tbody tr:hover{
   background-color: rgb(180, 130, 255);
+  border-color: black 1px solid;
+} 
+
+/*OJO REVIEW ESTO*/
+.table-hover tbody tr:hover td{
+  border-top-color: transparent;
 } 
 
 .table td {
   border-top-color: black;
-}
-
-.navbar {
-  padding: 0px;
 }
 
 td a {
@@ -139,26 +158,29 @@ tbody td:last-child {
   border-top: 0px;
 }
 
+.table tr:last-child td {
+  border-bottom: 1px solid black;
+}
+
 .table tbody+tbody {
   border-top: 0px;
 }
 
-.btn-tgif {
-  border-radius: 40px;
-  background-color: black;
-  color: white;
-  padding-left: 20px;
-  padding-right: 20px;
+/********* TABLE LINK ARROW *********/
+
+.lni-arrow-top-right {
+  font-weight: 700;
+  font-size: 8px;
 }
 
-.btn-tgif:hover {
-  background-color: rgb(180, 130, 255);
-}
+/********* TABLE FILTERS *********/
 
 .filters-row {
   border: 1px solid black;
   border-radius: 40px;
   padding: .5rem;
+  padding-left: 20px;
+  padding-right: 20px;
   margin-bottom: 40px;
 }
 
@@ -166,4 +188,58 @@ tbody td:last-child {
   display: inline-flex;
   margin-bottom: 0px;
   padding-left: .5rem;
+}
+
+.form-control-sm {
+  background-color: transparent;
+  border-radius: 10px;
+  border: solid black 1px;
+}
+
+/********* BACK TO TOP BUTTON *********/
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 40px; /* Place the button at the bottom of the page */
+  right: 40px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color:black; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 20px; /* Some padding */
+  border-radius: 100%; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+  
+  transition: ease-in-out color .15s;
+
+  width: 60px;
+  height: 60px;
+}
+
+#myBtn:hover {
+  background-color: rgb(180, 130, 255); /* Add a dark-grey background on hover */
+}
+
+/********* INTRO HEADER *********/
+
+#index-header {
+  height: 100vh;
+	background: linear-gradient(-45deg, black, rgb(180, 130, 255), white);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }

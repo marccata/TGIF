@@ -12,6 +12,12 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+  <!--Line Icons CSS-->
+  <link href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css" rel="stylesheet">
+
+  <!-- animsition.css -->
+<link rel="stylesheet" href="./css/animsition.min.css">
+
   <!--My CSS-->
   <link rel="stylesheet" href="./css/style.css">
 
@@ -26,7 +32,7 @@
 <body>
 
     <!--Header-->
-    <header>
+    <header class="container-fluid">
 
         <div class="row bg-black p-5">
 
@@ -73,7 +79,7 @@
     </header>
 
     <!--Main-->
-    <main class="container-fluid">
+    <main class="container-fluid animsition">
 
         <div class="row">
 
@@ -94,23 +100,27 @@
             <!--Table container-->
             <div class="col-lg-8 p-5">
 
-                <div class="filters-row">
-                    <p class="inline-flex">Filter by</p>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="checkRepublicans" value="republicans" checked>
-                        <label class="form-check-label" for="checkRepublicans">Republicans</label>
+                <div class="filters-row d-flex justify-content-between">
+                    <div class="d-flex align-items-baseline">
+                        <div class="mr-3">
+                            <p>Filter by</p>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkRepublicans" value="republicans" checked>
+                            <label class="form-check-label" for="checkRepublicans">Republicans</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkDemocrats" value="democrats" checked>
+                            <label class="form-check-label" for="checkDemocrats">Democrats</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkIndependents" value="independents" checked>
+                            <label class="form-check-label" for="checkIndependents">Independents</label>
+                        </div>
+                        <select class="form-control-sm mr-1" id="stateDropdown">
+                            <option>All states</option>
+                        </select>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="checkDemocrats" value="democrats" checked>
-                        <label class="form-check-label" for="checkDemocrats">Democrats</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="checkIndependents" value="independents" checked>
-                        <label class="form-check-label" for="checkIndependents">Independents</label>
-                    </div>
-                    <select class="form-control-sm" id="stateDropdown">
-                        <option>All states</option>
-                    </select>
                 </div>
 
                 <table class="table table-hover  table-responsive{-sm}">
@@ -133,8 +143,11 @@
     
     </main>
 
+    <!--Back to top button-->
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="lni-arrow-up"></i></button>
+
     <!--Footer-->
-  <footer class="container-fluid bg-black pl-5">
+  <footer class="container-fluid bg-black pl-5 animsition">
     <div class="col-12">
       <p class="text-white">©2020 TGIF – All rights reserved</p>
     </div>
@@ -152,7 +165,39 @@
     </script>
 
     <!--Senate JS-->
-    <script src='./js/congress113.js'></script>
+    <script src='./js/compiled.js'></script>
+    <script src='./js/top-btn.js'></script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- animsition.js -->
+    <script src="./js/animsition.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".animsition").animsition({
+            inClass: 'fade-in',
+            outClass: 'fade-out',
+            inDuration: 1800,
+            outDuration: 800,
+            linkElement: '.animsition-link',
+            // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+            loading: true,
+            loadingParentElement: 'body', //animsition wrapper element
+            loadingClass: 'animsition-loading',
+            loadingInner: '', // e.g '<img src="loading.svg" />'
+            timeout: false,
+            timeoutCountdown: 5000,
+            onLoadEvent: true,
+            browser: [ 'animation-duration', '-webkit-animation-duration'],
+            // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+            // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+            overlay : false,
+            overlayClass : 'animsition-overlay-slide',
+            overlayParentElement : 'body',
+            transition: function(url){ window.location.href = url; }
+        });
+        });
+    </script>
 
 </body>
 
