@@ -18,6 +18,9 @@
   <!--My CSS-->
   <link rel="stylesheet" href="./css/style.css">
 
+  <!-- animsition.css -->
+  <link rel="stylesheet" href="./css/animsition.min.css">
+
   <!--Google Fonts-->
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:300&display=swap" rel="stylesheet">
 
@@ -34,9 +37,9 @@
         <div class="row bg-black p-5">
 
             <!--Logo img + text-->
-            <div class="col-5">
-                <img class="logo" src="./img/Great_Seal_of_the_US_obverse_(PSF)_bw.jpg" alt="The great seal of the US logo">
-                <h1 class="text-white font-weight-light">Transparent <br>Government in Fact</h1>
+            <div class="col-5 logo-div">
+                <a href="./index.html"><img class="logo" src="./img/Great_Seal_of_the_US_obverse_(PSF)_bw.jpg" alt="The great seal of the US logo"></a>
+                <h1 class="text-white font-weight-light index-link"><a href="./index.html">Transparent <br>Government in Fact</a></h1>
             </div>
 
             <!--Navbar-->
@@ -44,27 +47,27 @@
                 <nav class="navbar">
                 <ul class="nav ml-auto">
                     <li class="nav-item">
-                    <a class="nav-link" href="./index.html">Home</a>
+                    <a class="nav-link animsition-link" href="./index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="./senate.html">Senate</a>
-                        <a class="dropdown-item" href="./house.html">House</a>
-                    </div>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item animsition-link" href="./senate.html">Senate</a>
+                            <a class="dropdown-item animsition-link" href="./house.html">House</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
                         <div class="dropdown-menu">
-                            <a class="nav-link" href="./senate-attendance.html">Senate</a>                        
-                            <a class="dropdown-item" href="./house-attendance.html">House</a>
+                            <a class="dropdown-item animsition-link" href="./senate-attendance.html">Senate</a>                        
+                            <a class="dropdown-item animsition-link" href="./house-attendance.html">House</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Party Loyalty</a>
-                        <div class="dropdown-menu">
-                            <a class="nav-link" href="./senate-loyalty.html">Senate</a>                        
-                            <a class="dropdown-item" href="./house-loyalty.html">House</a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item animsition-link" href="./senate-loyalty.html">Senate</a>                        
+                            <a class="dropdown-item animsition-link" href="./house-loyalty.html">House</a>
                         </div>
                     </li>
                 </ul>
@@ -75,16 +78,17 @@
 
     </header>
 
+
     <!--Main-->
-    <main class="container-fluid">
+    <main class="container-fluid animsition">
 
         <div class="row">
 
             <!--Introductory text-->
             <div class="col-lg-4 p-5">
-                <div class="top-line bottom-line">
+                <div>
                     <h2>House Loyalty</h2>
-                    <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.</p>
+                    <p class="top-line">The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.</p>
                     <p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
                 </div>
             </div>
@@ -117,8 +121,11 @@
 
                 <!--Second table-->
 
-                <h2 class="top-line bottom-line">Least Loyal (Bottom 10% of party)</h2>
-                
+                <div class="table-title">
+                    <h2 class="">Least Loyal</h2>
+                    <h3 class="">Bottom 10% of party</h3>
+                </div>
+
                 <table class="table table-hover  table-responsive{-sm}">
                     <thead class="thead-black">
                         <tr>
@@ -134,7 +141,11 @@
 
                 <!--Second table-->
 
-                <h2 class="top-line bottom-line">Most Loyal (Top 10% of party)</h2>
+                <div class="table-title">
+                    <h2 class="">Most Loyal</h2>
+                    <h3 class="">Top 10% of party</h3>
+                </div>
+
                 <table class="table table-hover  table-responsive{-sm}">
                     <thead class="thead-black">
                         <tr>
@@ -155,11 +166,11 @@
     </main>
 
     <!--Footer-->
-  <footer class="container-fluid bg-black pl-5">
-    <div class="col-12">
-      <p class="text-white">©2020 TGIF – All rights reserved</p>
-    </div>
-  </footer>
+    <footer class="container-fluid bg-black pl-5 animsition">
+        <div class="col-12">
+        <p class="text-white">©2020 TGIF – All rights reserved – <a class="text-white" href="mailto:info@tgif.net">Contact <i class="lni-arrow-top-right"></i></a></p>
+        </div>
+    </footer>
 
     <!--Bootstrap JS-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -170,6 +181,37 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Animsition page transition -->
+    <script src="./js/animsition.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".animsition").animsition({
+            inClass: 'fade-in',
+            outClass: 'fade-out',
+            inDuration: 1200,
+            outDuration: 600,
+            linkElement: '.animsition-link',
+            // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+            loading: true,
+            loadingParentElement: 'body', //animsition wrapper element
+            loadingClass: 'animsition-loading',
+            loadingInner: '', // e.g '<img src="loading.svg" />'
+            timeout: false,
+            timeoutCountdown: 5000,
+            onLoadEvent: true,
+            browser: [ 'animation-duration', '-webkit-animation-duration'],
+            // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+            // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+            overlay : false,
+            overlayClass : 'animsition-overlay-slide',
+            overlayParentElement : 'body',
+            transition: function(url){ window.location.href = url; }
+        });
+        });
     </script>
 
     <!--Senate JS-->

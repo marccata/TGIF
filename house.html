@@ -15,6 +15,9 @@
   <!--Line Icons CSS-->
   <link href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css" rel="stylesheet">
 
+  <!-- animsition.css -->
+  <link rel="stylesheet" href="./css/animsition.min.css">
+
   <!--My CSS-->
   <link rel="stylesheet" href="./css/style.css">
 
@@ -34,9 +37,9 @@
         <div class="row bg-black p-5">
 
             <!--Logo img + text-->
-            <div class="col-5">
-                <img class="logo" src="./img/Great_Seal_of_the_US_obverse_(PSF)_bw.jpg" alt="The great seal of the US logo">
-                <h1 class="text-white font-weight-light">Transparent <br>Government in Fact</h1>
+            <div class="col-5 logo-div">
+                <a href="./index.html"><img class="logo" src="./img/Great_Seal_of_the_US_obverse_(PSF)_bw.jpg" alt="The great seal of the US logo"></a>
+                <h1 class="text-white font-weight-light index-link"><a href="./index.html">Transparent <br>Government in Fact</a></h1>
             </div>
 
             <!--Navbar-->
@@ -44,27 +47,27 @@
                 <nav class="navbar">
                 <ul class="nav ml-auto">
                     <li class="nav-item">
-                    <a class="nav-link" href="./index.html">Home</a>
+                    <a class="nav-link animsition-link" href="./index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle active" data-toggle="dropdown" href="#">Congress 113</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="./senate.html">Senate</a>
-                        <a class="dropdown-item" href="./house.html">House</a>
-                    </div>
+                        <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Congress 113</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item animsition-link" href="./senate.html">Senate</a>
+                            <a class="dropdown-item animsition-link" href="./house.html">House</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
                         <div class="dropdown-menu">
-                            <a class="nav-link" href="./senate-attendance.html">Senate</a>                        
-                            <a class="dropdown-item" href="./house-attendance.html">House</a>
+                            <a class="dropdown-item animsition-link" href="./senate-attendance.html">Senate</a>                        
+                            <a class="dropdown-item animsition-link" href="./house-attendance.html">House</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
-                        <div class="dropdown-menu">
-                            <a class="nav-link" href="./senate-loyalty.html">Senate</a>                        
-                            <a class="dropdown-item" href="./house-loyalty.html">House</a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item animsition-link" href="./senate-loyalty.html">Senate</a>                        
+                            <a class="dropdown-item animsition-link" href="./house-loyalty.html">House</a>
                         </div>
                     </li>
                 </ul>
@@ -77,15 +80,15 @@
 
 
     <!--Main-->
-    <main class="container-fluid">
+    <main class="container-fluid animsition">
 
         <div class="row">
   
             <!--Introductory text-->
             <div class="col-lg-4 p-5">
-                <div class="top-line bottom-line">
+                <div>
                     <h2>Congressmen</h2>
-                    <p>The major power of the House is to pass federal legislation that affects the entire country, although
+                    <p class="top-line">The major power of the House is to pass federal legislation that affects the entire country, although
                         its bills must also be passed by the Senate and further agreed to by the U.S. President before
                         becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in
                         each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach
@@ -130,9 +133,12 @@
                         </tr>
                     </thead>
                     <tbody id="tbody-data">
-                
                     </tbody>
                 </table>
+                <!--Page loader-->
+                <div id="table-loader" class="table-parent d-flex justify-content-around align-items-center">
+                    <div class="table-loader"></div>
+                </div>
             </div>
 
         </div>
@@ -140,11 +146,11 @@
     </main>
 
     <!--Footer-->
-  <footer class="container-fluid bg-black pl-5">
-    <div class="col-12">
-      <p class="text-white">©2020 TGIF – All rights reserved</p>
-    </div>
-  </footer>
+    <footer class="container-fluid bg-black pl-5 animsition">
+        <div class="col-12">
+        <p class="text-white">©2020 TGIF – All rights reserved – <a class="text-white" href="mailto:info@tgif.net">Contact <i class="lni-arrow-top-right"></i></a></p>
+        </div>
+    </footer>
 
     <!--Bootstrap JS-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -155,6 +161,37 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Animsition page transition -->
+    <script src="./js/animsition.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".animsition").animsition({
+            inClass: 'fade-in',
+            outClass: 'fade-out',
+            inDuration: 1200,
+            outDuration: 600,
+            linkElement: '.animsition-link',
+            // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+            loading: true,
+            loadingParentElement: 'body', //animsition wrapper element
+            loadingClass: 'animsition-loading',
+            loadingInner: '', // e.g '<img src="loading.svg" />'
+            timeout: false,
+            timeoutCountdown: 5000,
+            onLoadEvent: true,
+            browser: [ 'animation-duration', '-webkit-animation-duration'],
+            // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+            // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+            overlay : false,
+            overlayClass : 'animsition-overlay-slide',
+            overlayParentElement : 'body',
+            transition: function(url){ window.location.href = url; }
+        });
+        });
     </script>
 
     <!--House JS-->

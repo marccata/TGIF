@@ -2,6 +2,7 @@
 // KNOW THE HTML PAGE NAME
 var path = window.location.pathname;
 var page = path.split("/").pop();
+
 // CHANGE DATA ROOT DEPENDING OF THE HTML PAGE THE CALL IS COMING FROM
 if (page == "senate.html" || page == "senate-attendance.html" || page == "senate-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/senate/members.json";};
 if (page == "house.html" || page == "house-attendance.html" || page == "house-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/house/members.json";};
@@ -17,17 +18,18 @@ fetch(url, {
 }).then(data => {
     const newData = data.results[0].members;
     members = newData;
-    mainAtions();
+    init();
 }).catch(function(){
-    console.log('Error on loading data source')
+    console.log('Error on loading data source');
 });
 
 // FUNCTION OF FUNCTIONS DEPENDING ON HTML PAGE
-function mainAtions(){
+function init(){
     // SENATE & HOUSE ACTIONS
     if (page == "senate.html" || page == "house.html") {
         print(members);
         knowStates(members);
+        document.getElementById('table-loader').classList.add("d-none-imp");
     }
     // ATTENDANCE ACTIONS
     if (page == "senate-attendance.html" || page == "house-attendance.html") {
@@ -91,7 +93,6 @@ document.getElementById('stateDropdown').addEventListener("change", filter);
 
 // FILTER FUNCTION
 function filter() {
-
     // KNOW INDEX FILTER OF STATE DROPDOWN
     var dropdown = document.getElementById("stateDropdown");
     var index = dropdown.selectedIndex;
@@ -165,7 +166,9 @@ function knowStates(members) {
     };
 };
 
+
 //**************************************************************** ATTENDANCE PAGES ****************************************************************
+
 
 //************** TOP TABLE **************
 

@@ -3,6 +3,7 @@ body {
   background-color: #E7E6E4;
   font-weight: 300;
   font-size: .9rem;
+  color: black;
 }
 
 p {
@@ -41,12 +42,12 @@ footer p {
 }
 
 .nav-item a {
-  color: white;
+  color: white !important;
 }
 
 .nav-item a:hover {
-  color: rgb(185, 185, 185);
-  transition: ease-in-out color .15s;
+  color: rgb(180, 130, 255) !important;
+  transition: ease-in-out color .2s;
   text-decoration: none;
 }
 
@@ -56,8 +57,8 @@ footer p {
   text-decoration: none;
 }
 
-h2 {
-  font-size: 4rem;
+#home h2 {
+  font-size: 4.8rem;
 }
 
 .top-line {
@@ -77,6 +78,12 @@ h2 {
 
 .nav-item .active {
   border-bottom: 1px solid white;
+  transition: ease-in-out color .15s;
+}
+
+.nav-item .active:hover {
+  border-bottom: 1px solid rgb(180, 130, 255);
+  transition: ease-in-out color .15s;
 }
 
 .dropdown-menu {
@@ -196,6 +203,36 @@ tbody td:last-child {
   border: solid black 1px;
 }
 
+/********* TABLE LOADER *********/
+
+.table-loader {
+  border: 5px solid transparent; /* Light grey */
+  border-top: 5px black solid; /* Blue */
+  border-bottom: 5px black solid; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.table-parent {
+  height: 200px;
+}
+
+.d-none-imp {
+  display: none !important;
+}
+
+.table-title {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
 /********* BACK TO TOP BUTTON *********/
 
 #myBtn {
@@ -225,6 +262,17 @@ tbody td:last-child {
 
 /********* INTRO HEADER *********/
 
+.index-link a{
+  color: white;
+  transition: all .3s ease;
+}
+
+.index-link a:hover{
+  text-decoration: none;
+  color: rgb(180, 130, 255) !important;
+  transition: all .3s ease;
+}
+
 #index-header {
   height: 100vh;
 	background: linear-gradient(-45deg, black, rgb(180, 130, 255), white);
@@ -242,4 +290,52 @@ tbody td:last-child {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+header .col-5, header .col-7 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/********* VARIOUS *********/
+
+main {
+  min-height: calc(100vh - 320px);
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.pt-100 {
+  padding-top: 100px !important;
+}
+
+/********* MENU DROPDOWN TWEAKS *********/
+
+.dropdown-menu.show {
+  background-color: transparent;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.dropdown-item {
+  border: 1px solid white;
+  margin-top: 14px;
+  border-radius: 20px;
+  padding: 8px 18px;
+}
+
+.dropdown-item:hover {
+  color: black !important;
+  background-color:  rgb(180, 130, 255);
+  border-color: rgb(180, 130, 255);
+}
+
+.dropdown-menu {
+  margin-left: 0.5rem;
 }
