@@ -32,59 +32,71 @@
 <body>
 
     <!--Header-->
-    <header class="container-fluid">
+    <header class="bg-black">
 
-        <div class="row bg-black p-5">
+        <div class="container-fluid ">
 
-            <!--Logo img + text-->
-            <div class="col-5 logo-div">
-                <a href="./index.html"><img class="logo" src="./img/Great_Seal_of_the_US_obverse_(PSF)_bw.jpg" alt="The great seal of the US logo"></a>
-                <h1 class="text-white font-weight-light index-link"><a href="./index.html">Transparent <br>Government in Fact</a></h1>
+            <div class="row p-4 p-lg-5">
+
+                <!--Logo img + text-->
+                <div class="col-lg-5 col-10 logo-div">
+                    <a href="./index.html"><span class="logo"></span></a>
+                    <h1 class="text-white font-weight-light index-link"><a href="./index.html" id="logo-text">Transparent <br>Government in Fact</a></h1>
+                </div>
+
+                <!--Navbar-->
+                <div class="col-lg-7 col-2">
+                    <nav class="navbar navbar-expand-lg">
+
+                        <a class="navbar-brand" href="#"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav ml-auto">
+                                <li class="nav-item">
+                                <a class="nav-link animsition-link" href="./index.html">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Congress 113</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item animsition-link" href="./senate.html">Senate</a>
+                                        <a class="dropdown-item animsition-link" href="./house.html">House</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item animsition-link" href="./senate-attendance.html">Senate</a>                        
+                                        <a class="dropdown-item animsition-link" href="./house-attendance.html">House</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item animsition-link" href="./senate-loyalty.html">Senate</a>                        
+                                        <a class="dropdown-item animsition-link" href="./house-loyalty.html">House</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
             </div>
 
-            <!--Navbar-->
-            <div class="col-7">
-                <nav class="navbar">
-                <ul class="nav ml-auto">
-                    <li class="nav-item">
-                    <a class="nav-link animsition-link" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Congress 113</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item animsition-link" href="./senate.html">Senate</a>
-                            <a class="dropdown-item animsition-link" href="./house.html">House</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item animsition-link" href="./senate-attendance.html">Senate</a>                        
-                            <a class="dropdown-item animsition-link" href="./house-attendance.html">House</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item animsition-link" href="./senate-loyalty.html">Senate</a>                        
-                            <a class="dropdown-item animsition-link" href="./house-loyalty.html">House</a>
-                        </div>
-                    </li>
-                </ul>
-                </nav>
-            </div>
-
-        </div>
+        </div>    
 
     </header>
 
     <!--Main-->
     <main class="container-fluid animsition">
 
-        <div class="row">
+        <div class="row p-4 p-lg-5">
 
             <!--Introductory text-->
-            <div class="col-lg-4 p-5">
+            <div class="col-lg-4">
                 <div>
                     <h2>Senators</h2>
                     <p class="top-line">First convened in 1789, the composition and powers of the Senate are established in Article One of the
@@ -98,7 +110,7 @@
             </div>
 
             <!--Table container-->
-            <div class="col-lg-8 p-5">
+            <div class="col-lg-8">
 
                 <div class="filters-row d-flex justify-content-between">
                     <div class="d-flex align-items-baseline">
@@ -122,7 +134,7 @@
                         </select>
                     </div>
                 </div>
-                <table class="table table-hover  table-responsive{-sm}">
+                <table class="table table-hover  table-responsive">
                     <thead class="thead-black">
                         <tr>
                             <th>Senator name</th>
@@ -135,10 +147,12 @@
                     <tbody id="tbody-data">
                     </tbody>
                 </table>
+
                 <!--Page loader-->
                 <div id="table-loader" class="table-parent d-flex justify-content-around align-items-center">
                     <div class="table-loader"></div>
                 </div>
+
             </div>
         
         </div>
@@ -170,32 +184,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Animsition page transition -->
     <script src="./js/animsition.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(".animsition").animsition({
-            inClass: 'fade-in',
-            outClass: 'fade-out',
-            inDuration: 1200,
-            outDuration: 600,
-            linkElement: '.animsition-link',
-            // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
-            loading: true,
-            loadingParentElement: 'body', //animsition wrapper element
-            loadingClass: 'animsition-loading',
-            loadingInner: '', // e.g '<img src="loading.svg" />'
-            timeout: false,
-            timeoutCountdown: 5000,
-            onLoadEvent: true,
-            browser: [ 'animation-duration', '-webkit-animation-duration'],
-            // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-            // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-            overlay : false,
-            overlayClass : 'animsition-overlay-slide',
-            overlayParentElement : 'body',
-            transition: function(url){ window.location.href = url; }
-        });
-        });
-    </script>
+    <script src="./js/animsition-call.js"></script>
 
     <!--Senate JS-->
     <script src='./js/compiled.js'></script>

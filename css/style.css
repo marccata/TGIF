@@ -1,3 +1,5 @@
+/********* GENERAL *********/
+
 body {
   font-family: 'Work Sans';
   background-color: #E7E6E4;
@@ -6,18 +8,7 @@ body {
   color: black;
 }
 
-p {
-  margin-bottom: 0px;
-}
-
-.closed-div {
-  display: none;
-}
-
-.open-div {
-  display: block;
-  transition: ease-in-out color .15s;
-}
+/********* FOOTER *********/
 
 footer {
   padding-top: 2rem;
@@ -28,11 +19,34 @@ footer p {
   margin-bottom: .25rem;
 }
 
-.logo {
- height: 130px;
- padding-bottom: 10px;
+/********* MENU CUSTOMIZATION *********/
+
+.index-link a{
+  color: white;
+  transition: all .3s ease;
 }
 
+.index-link a:hover{
+  text-decoration: none;
+  color: rgb(180, 130, 255) !important;
+  transition: all .3s ease;
+}
+
+.logo {
+  height: 80px;
+  width: 80px;
+  padding-bottom: 20px;
+  background-image: url(../img/tgif-logo.svg);
+  background-size: 80px 80px;
+  transition: all .3s ease;
+ }
+
+ .logo:hover {
+  background-image: url(../img/tgif-logo-hover.svg);
+  background-size: auto;
+  transition: all .3s ease;
+ }
+ 
 .bg-black {
   background-color: black;
 }
@@ -51,24 +65,10 @@ footer p {
   text-decoration: none;
 }
 
-.dropdown-item a:hover {
-  color: rgb(185, 185, 185);
+.dropdown-menu a:hover {
+  color: black !important;
   transition: ease-in-out color .15s;
   text-decoration: none;
-}
-
-#home h2 {
-  font-size: 4.8rem;
-}
-
-.top-line {
-  border-top: black solid 1px;
-  padding-top: 20px;
-}
-
-.bottom-line {
-  border-bottom: black solid 1px;
-  padding-bottom: 20px;
 }
 
 .nav-link {
@@ -94,7 +94,32 @@ footer p {
   padding: 0px;
 }
 
-/********* HOME BUTTON *********/
+/********* MENU DROPDOWN TWEAKS *********/
+
+.dropdown-menu.show {
+  background-color: transparent;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.dropdown-item {
+  border: 1px solid white;
+  margin-top: 14px;
+  border-radius: 20px;
+  padding: 8px 18px;
+}
+
+.dropdown-item:hover {
+  color: black !important;
+  background-color:  rgb(180, 130, 255);
+  border-color: rgb(180, 130, 255);
+}
+
+.dropdown-menu {
+  margin-left: 0.5rem;
+}
+
+/********* HOME READ MORE BUTTON *********/
 
 .btn-tgif {
   border-radius: 40px;
@@ -117,11 +142,10 @@ footer p {
 
 .table-hover tbody tr:hover{
   background-color: rgb(180, 130, 255);
-  border-color: black 1px solid;
 } 
 
-/*OJO REVIEW ESTO*/
-.table-hover tbody tr:hover td{
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover + tr td{
   border-top-color: transparent;
 } 
 
@@ -236,7 +260,7 @@ tbody td:last-child {
 /********* BACK TO TOP BUTTON *********/
 
 #myBtn {
-  display: none; /* Hidden by default */
+  visibility: hidden;
   position: fixed; /* Fixed/sticky position */
   bottom: 40px; /* Place the button at the bottom of the page */
   right: 40px; /* Place the button 30px from the right */
@@ -250,7 +274,7 @@ tbody td:last-child {
   border-radius: 100%; /* Rounded corners */
   font-size: 18px; /* Increase font size */
   
-  transition: ease-in-out color .15s;
+  transition: visibility 0s, opacity 0.5s linear
 
   width: 60px;
   height: 60px;
@@ -260,18 +284,7 @@ tbody td:last-child {
   background-color: rgb(180, 130, 255); /* Add a dark-grey background on hover */
 }
 
-/********* INTRO HEADER *********/
-
-.index-link a{
-  color: white;
-  transition: all .3s ease;
-}
-
-.index-link a:hover{
-  text-decoration: none;
-  color: rgb(180, 130, 255) !important;
-  transition: all .3s ease;
-}
+/********* INTRO HEADER HOME *********/
 
 #index-header {
   height: 100vh;
@@ -303,8 +316,16 @@ main {
   min-height: calc(100vh - 320px);
 }
 
+p {
+  margin-bottom: 0px;
+}
+
+h1 {
+  font-size: 1.4rem;
+}
+
 h2 {
-  font-size: 2.5rem;
+  font-size: 1.4rem;
 }
 
 h3 {
@@ -315,27 +336,58 @@ h3 {
   padding-top: 100px !important;
 }
 
-/********* MENU DROPDOWN TWEAKS *********/
-
-.dropdown-menu.show {
-  background-color: transparent;
-  margin-top: 0px;
-  padding-top: 0px;
+#home h2 {
+  font-size: 4.8rem;
 }
 
-.dropdown-item {
-  border: 1px solid white;
-  margin-top: 14px;
-  border-radius: 20px;
-  padding: 8px 18px;
+.top-line {
+  border-top: black solid 1px;
+  padding-top: 20px;
 }
 
-.dropdown-item:hover {
-  color: black !important;
-  background-color:  rgb(180, 130, 255);
-  border-color: rgb(180, 130, 255);
+.bottom-line {
+  border-bottom: black solid 1px;
+  padding-bottom: 20px;
 }
 
-.dropdown-menu {
-  margin-left: 0.5rem;
+/********* SHOW TABLES - ATT & LOY LOADER  *********/
+
+.hide-tables {
+  display: none;
+}
+
+.show-table {
+  display: block;
+}
+
+/********* MOBILE MENU  *********/
+
+.navbar-toggler {
+  background-color: white;
+}
+
+
+
+/********* BREAKPOINTS  *********/
+
+@media (min-width: 720px){
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  .logo {
+    height: 130px;
+    width: 130px;
+    padding-bottom: 10px;
+    background-size: 130px 130px;
+
+  }
+}
+
+@media (min-width: 1200px){
+.container-fluid {
+    max-width: 1600px;
+}
 }

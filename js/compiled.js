@@ -35,6 +35,8 @@ function init(){
     if (page == "senate-attendance.html" || page == "house-attendance.html") {
         attendance();
         attendanceTable();
+        document.getElementById('table-loader').classList.add("d-none-imp");
+        document.getElementById('tables').classList.add("show-table");
         sortArrayMostEngaged();
         sortArrayLeastEngaged();
     }
@@ -42,6 +44,8 @@ function init(){
     if (page == "senate-loyalty.html" || page == "house-loyalty.html") {
         attendance();
         attendanceTable();
+        document.getElementById('table-loader').classList.add("d-none-imp");
+        document.getElementById('tables').classList.add("show-table");
         sortArrayMostEngagedLoy();
         sortArrayLeastEngagedLoy();
     }
@@ -86,10 +90,12 @@ function print(members) {
 };
 
 // EVENT LISTENERS OF THE CHECKBOXES
-document.getElementById('checkRepublicans').addEventListener("click", filter);
-document.getElementById('checkDemocrats').addEventListener("click", filter);
-document.getElementById('checkIndependents').addEventListener("click", filter);
-document.getElementById('stateDropdown').addEventListener("change", filter);
+if (page == "senate.html" || page == "house.html") {
+    document.getElementById('checkRepublicans').addEventListener("click", filter);
+    document.getElementById('checkDemocrats').addEventListener("click", filter);
+    document.getElementById('checkIndependents').addEventListener("click", filter);
+    document.getElementById('stateDropdown').addEventListener("change", filter);
+}
 
 // FILTER FUNCTION
 function filter() {
