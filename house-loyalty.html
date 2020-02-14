@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TGIF - Senate 113 - House</title>
+  <title>TGIF - Loyalty - House</title>
 
   <!--Bootstrap CSS-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -32,49 +32,61 @@
 <body>
 
     <!--Header-->
-    <header class="container-fluid">
+    <header class="bg-black">
 
-        <div class="row bg-black p-5">
+        <div class="container-fluid ">
 
-            <!--Logo img + text-->
-            <div class="col-5 logo-div">
-                <a href="./index.html"><span class="logo"></span></a>
-                <h1 class="text-white font-weight-light index-link"><a href="./index.html" id="logo-text">Transparent <br>Government in Fact</a></h1>
+            <div class="row p-4 p-lg-5">
+
+                <!--Logo img + text-->
+                <div class="col-lg-5 col-10 logo-div">
+                    <a href="./index.html"><span class="logo"></span></a>
+                    <h1 class="text-white font-weight-light index-link"><a href="./index.html" id="logo-text">Transparent <br>Government in Fact</a></h1>
+                </div>
+
+                <!--Navbar-->
+                <div class="col-lg-7 col-2">
+                    <nav class="navbar navbar-expand-lg">
+
+                        <a class="navbar-brand" href="#"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav ml-auto">
+                                <li class="nav-item">
+                                <a class="nav-link animsition-link" href="./index.html">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item animsition-link" href="./senate.html">Senate</a>
+                                        <a class="dropdown-item animsition-link" href="./house.html">House</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item animsition-link" href="./senate-attendance.html">Senate</a>                        
+                                        <a class="dropdown-item animsition-link" href="./house-attendance.html">House</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Party Loyalty</a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item animsition-link" href="./senate-loyalty.html">Senate</a>                        
+                                        <a class="dropdown-item animsition-link" href="./house-loyalty.html">House</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
             </div>
 
-            <!--Navbar-->
-            <div class="col-7">
-                <nav class="navbar">
-                <ul class="nav ml-auto">
-                    <li class="nav-item">
-                    <a class="nav-link animsition-link" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item animsition-link" href="./senate.html">Senate</a>
-                            <a class="dropdown-item animsition-link" href="./house.html">House</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item animsition-link" href="./senate-attendance.html">Senate</a>                        
-                            <a class="dropdown-item animsition-link" href="./house-attendance.html">House</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Party Loyalty</a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item animsition-link" href="./senate-loyalty.html">Senate</a>                        
-                            <a class="dropdown-item animsition-link" href="./house-loyalty.html">House</a>
-                        </div>
-                    </li>
-                </ul>
-                </nav>
-            </div>
-
-        </div>
+        </div>    
 
     </header>
 
@@ -82,100 +94,108 @@
     <!--Main-->
     <main class="container-fluid animsition">
 
-        <div class="row">
+        <div class="row p-4 p-lg-5">
 
             <!--Introductory text-->
-            <div class="col-lg-4 p-5">
-                <div>
-                    <h2>House Loyalty</h2>
-                    <p class="top-line">The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.</p>
-                    <p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
-                </div>
+            <div class="col-12">
+                <h2 class="bottom-line mb-2">Party loyalty – House</h2>
             </div>
 
-            <!--Table container-->
-            <div class="col-lg-8 p-5">
-                <div id="tables" class="hide-tables">
-                    <table class="table table-hover  table-responsive{-sm}">
-                        <thead class="thead-black">
-                            <tr>
-                                <th>Party</th>
-                                <th>Number of Reps</th>
-                                <th>% Voted with Prty</th>
-                            </tr>
-                        </thead class="thead-black">
-                        <tbody id='senateAttendanceData'>
-                            <tr id="attendanceTableRep">
-                                <td>Republican</td>
-                            </tr>
-                            <tr id="attendanceTableDem">
-                                <td>Democrat</td>
-                            </tr>
-                            <tr id="attendanceTableInd">
-                                <td>Independent</td>
-                            </tr>
-                            <tr id="attendanceTableSum">
-                                <td>Total</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="col-sm-12 col-md-8 col-lg-4 mt-30">
+                <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>
+            </div>
 
-                    <!--Second table-->
-
-                    <div class="table-title">
-                        <h2 class="">Least Loyal</h2>
-                        <h3 class="">Bottom 10% of party</h3>
-                    </div>
-
-                    <table class="table table-hover  table-responsive{-sm}">
-                        <thead class="thead-black">
-                            <tr>
-                                <th>Name</th>
-                                <th>Votes w. party num.</th>
-                                <th>Votes w. party %</th>
-                            </tr>
-                        </thead>
-                        <tbody id="loyaltyTableBottom10">
-                            
-                        </tbody>
-                    </table>
-
-                    <!--Second table-->
-
-                    <div class="table-title">
-                        <h2 class="">Most Loyal</h2>
-                        <h3 class="">Top 10% of party</h3>
-                    </div>
-
-                    <table class="table table-hover  table-responsive{-sm}">
-                        <thead class="thead-black">
-                            <tr>
-                                <th>Name</th>
-                                <th>Votes w. party num.</th>
-                                <th>Votes w. party %</th>
-                            </tr>
-                        </thead>
-                        <tbody id="loyaltyTableTop10">
-                            
-                        </tbody>
-                    </table>
-                </div>
-
+            <!--First table-->
+            <div class="col-lg-8">
+                <table class="table table-hover table-responsive{-sm|-md} mt-30 mt-30-resp">
+                    <thead class="thead-black">
+                        <tr>
+                            <th>Party</th>
+                            <th>Number of Reps</th>
+                            <th>Voted with Party</th>
+                        </tr>
+                    </thead class="thead-black">
+                    <tbody id='senateAttendanceData' class="hide-tables">
+                        <tr id="attendanceTableRep">
+                            <td>Republican</td>
+                        </tr>
+                        <tr id="attendanceTableDem">
+                            <td>Democrat</td>
+                        </tr>
+                        <tr id="attendanceTableInd">
+                            <td>Independent</td>
+                        </tr>
+                        <tr id="attendanceTableSum">
+                            <td>Total</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <!--Page loader-->
-                <div id="table-loader" class="table-parent d-flex justify-content-around align-items-center">
+                <div id="table-loader-1" class="table-parent d-flex justify-content-around align-items-center">
                     <div class="table-loader"></div>
                 </div>
-
             </div>
+
+
+        <!--Second table-->
+        <div class="col-lg-6 col-12">
+            <div class="table-title">
+                <h2  class="bottom-line mb-2">Least Loyal</h2>
+                <p class="mt-20">Bottom 10% of party</p>
+            </div>                
+            <table class="table table-hover  table-responsive{-sm}">
+                <thead class="thead-black">
+                    <tr>
+                        <th>Name</th>
+                        <th>Votes w. party num.</th>
+                        <th>Votes w. party %</th>
+                </tr>
+                </thead>
+                <tbody id="loyaltyTableBottom10">
+                </tbody>
+            </table>
+            <!--Page loader-->
+            <div id="table-loader-2" class="table-parent d-flex justify-content-around align-items-center">
+                <div class="table-loader"></div>
+            </div>
+        </div>
+
+        <!--Third table-->
+        <div class="col-lg-6 col-12">
+            <div class="table-title">
+                <h2 class="bottom-line mb-2">Most Loyal</h2>
+                <p class="mt-20">Top 10% of party</p>
+            </div>
+            <table class="table table-hover  table-responsive{-sm}">
+                <thead class="thead-black">
+                    <tr>
+                        <th>Name</th>
+                        <th>Votes w. party num.</th>
+                        <th>Votes w. party %</th>
+                    </tr>
+                </thead>
+                <tbody id="loyaltyTableTop10"> 
+                </tbody>
+            </table>
+            <!--Page loader-->
+            <div id="table-loader-3" class="table-parent d-flex justify-content-around align-items-center">
+                <div class="table-loader"></div>
+            </div>
+        </div>
         
         </div>
-    
+
     </main>
 
+    <!--Back to top button-->
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="lni-arrow-up"></i></button>
+
     <!--Footer-->
-    <footer class="container-fluid bg-black pl-5 animsition">
-        <div class="col-12">
-        <p class="text-white">©2020 TGIF – All rights reserved – <a class="text-white" href="mailto:info@tgif.net">Contact <i class="lni-arrow-top-right"></i></a></p>
+    <footer class="bg-blackanimsition bg-black">
+        <div class="container-fluid  pl-4 pl-lg-5">
+            <div class="col-12">
+                <p class="text-white">©2020 TGIF – All rights reserved – <a class="text-white" href="mailto:info@tgif.net">Contact <i class="lni-arrow-top-right"></i></a></p>
+            </div>
         </div>
     </footer>
 

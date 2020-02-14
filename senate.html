@@ -96,23 +96,24 @@
         <div class="row p-4 p-lg-5">
 
             <!--Introductory text-->
-            <div class="col-lg-4">
-                <div>
-                    <h2>Senators</h2>
-                    <p class="top-line">First convened in 1789, the composition and powers of the Senate are established in Article One of the
-                        U.S. Constitution. Each state is represented by two senators, regardless of population, who serve
-                        staggered six-year terms. The Senate has several exclusive powers not granted to the House, including
-                        consenting to treaties as a precondition to their ratification and consenting to or confirming
-                        appointments of Cabinet secretaries, federal judges, other federal executive officials, military
-                        officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of
-                        federal officials impeached by the House.</p>
-                </div>
+            <div class="col-12">
+                <h2 class="bottom-line mb-2">Senators</h2>
+            </div>
+
+            <div class="col-sm-12 col-md-8 col-lg-4 mt-30">
+                <p>First convened in 1789, the composition and powers of the Senate are established in Article One of the
+                    U.S. Constitution. Each state is represented by two senators, regardless of population, who serve
+                    staggered six-year terms. The Senate has several exclusive powers not granted to the House, including
+                    consenting to treaties as a precondition to their ratification and consenting to or confirming
+                    appointments of Cabinet secretaries, federal judges, other federal executive officials, military
+                    officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of
+                    federal officials impeached by the House.</p>
             </div>
 
             <!--Table container-->
             <div class="col-lg-8">
 
-                <div class="filters-row d-flex justify-content-between">
+                <div class="filters-row d-flex justify-content-between mt-30 mt-30-resp">
                     <div class="d-flex align-items-baseline">
                         <div class="mr-3">
                             <p>Filter by</p>
@@ -134,7 +135,7 @@
                         </select>
                     </div>
                 </div>
-                <table class="table table-hover  table-responsive">
+                <table class="table table-hover  table-responsive{-sm|-md}">
                     <thead class="thead-black">
                         <tr>
                             <th>Senator name</th>
@@ -163,9 +164,11 @@
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="lni-arrow-up"></i></button>
 
     <!--Footer-->
-    <footer class="container-fluid bg-black pl-5 animsition">
-        <div class="col-12">
-        <p class="text-white">©2020 TGIF – All rights reserved – <a class="text-white" href="mailto:info@tgif.net">Contact <i class="lni-arrow-top-right"></i></a></p>
+    <footer class="bg-blackanimsition bg-black">
+        <div class="container-fluid  pl-4 pl-lg-5">
+            <div class="col-12">
+                <p class="text-white">©2020 TGIF – All rights reserved – <a class="text-white" href="mailto:info@tgif.net">Contact <i class="lni-arrow-top-right"></i></a></p>
+            </div>
         </div>
     </footer>
 
@@ -188,7 +191,6 @@
 
     <!--Senate JS-->
     <script src='./js/compiled.js'></script>
-    <script src='./js/top-btn.js'></script>
 
 </body>
 

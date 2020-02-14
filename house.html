@@ -32,49 +32,61 @@
 <body>
 
     <!--Header-->
-    <header class="container-fluid">
+    <header class="bg-black">
 
-        <div class="row bg-black p-5">
+        <div class="container-fluid ">
 
-            <!--Logo img + text-->
-            <div class="col-5 logo-div">
-                <a href="./index.html"><span class="logo"></span></a>
-                <h1 class="text-white font-weight-light index-link"><a href="./index.html" id="logo-text">Transparent <br>Government in Fact</a></h1>
+            <div class="row p-4 p-lg-5">
+
+                <!--Logo img + text-->
+                <div class="col-lg-5 col-10 logo-div">
+                    <a href="./index.html"><span class="logo"></span></a>
+                    <h1 class="text-white font-weight-light index-link"><a href="./index.html" id="logo-text">Transparent <br>Government in Fact</a></h1>
+                </div>
+
+                <!--Navbar-->
+                <div class="col-lg-7 col-2">
+                    <nav class="navbar navbar-expand-lg">
+
+                        <a class="navbar-brand" href="#"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav ml-auto">
+                                <li class="nav-item">
+                                <a class="nav-link animsition-link" href="./index.html">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Congress 113</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item animsition-link" href="./senate.html">Senate</a>
+                                        <a class="dropdown-item animsition-link" href="./house.html">House</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item animsition-link" href="./senate-attendance.html">Senate</a>                        
+                                        <a class="dropdown-item animsition-link" href="./house-attendance.html">House</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item animsition-link" href="./senate-loyalty.html">Senate</a>                        
+                                        <a class="dropdown-item animsition-link" href="./house-loyalty.html">House</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
             </div>
 
-            <!--Navbar-->
-            <div class="col-7">
-                <nav class="navbar">
-                <ul class="nav ml-auto">
-                    <li class="nav-item">
-                    <a class="nav-link animsition-link" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Congress 113</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item animsition-link" href="./senate.html">Senate</a>
-                            <a class="dropdown-item animsition-link" href="./house.html">House</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item animsition-link" href="./senate-attendance.html">Senate</a>                        
-                            <a class="dropdown-item animsition-link" href="./house-attendance.html">House</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item animsition-link" href="./senate-loyalty.html">Senate</a>                        
-                            <a class="dropdown-item animsition-link" href="./house-loyalty.html">House</a>
-                        </div>
-                    </li>
-                </ul>
-                </nav>
-            </div>
-
-        </div>
+        </div>    
 
     </header>
 
@@ -82,47 +94,53 @@
     <!--Main-->
     <main class="container-fluid animsition">
 
-        <div class="row">
-  
+        <div class="row p-4 p-lg-5">
+
             <!--Introductory text-->
-            <div class="col-lg-4 p-5">
-                <div>
-                    <h2>Congressmen</h2>
-                    <p class="top-line">The major power of the House is to pass federal legislation that affects the entire country, although
-                        its bills must also be passed by the Senate and further agreed to by the U.S. President before
-                        becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in
-                        each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach
-                        officials (impeached officials are subsequently tried in the Senate), and to elect the U.S.
-                        President in case there is no majority in the Electoral College.</p>
-                    <p>Each U.S. state is represented in the House in proportion to its population as measured in the
-                        census, but every state is entitled to at least one representative. </p>
-                </div>
+            <div class="col-12">
+                <h2 class="bottom-line mb-2">Congressmen</h2>
+            </div>
+  
+            <div class="col-sm-12 col-md-8 col-lg-4 mt-30">
+                <p>The major power of the House is to pass federal legislation that affects the entire country, although
+                its bills must also be passed by the Senate and further agreed to by the U.S. President before
+                becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in
+                each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach
+                officials (impeached officials are subsequently tried in the Senate), and to elect the U.S.
+                President in case there is no majority in the Electoral College.</p>
+                <br>
+                <p>Each U.S. state is represented in the House in proportion to its population as measured in the
+                census, but every state is entitled to at least one representative. </p>
             </div>
 
 
             <!--Table container-->
-            <div class="col-lg-8 p-5">
+            <div class="col-lg-8">
 
-                <div class="filters-row">
-                    <p class="inline-flex">Filter by</p>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="checkRepublicans" value="republicans" checked>
-                        <label class="form-check-label" for="checkRepublicans">Republicans</label>
+                <div class="filters-row d-flex justify-content-between mt-30 mt-30-resp">
+                    <div class="d-flex align-items-baseline">
+                        <div class="mr-3">
+                            <p>Filter by</p>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkRepublicans" value="republicans" checked>
+                            <label class="form-check-label" for="checkRepublicans">Republicans</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkDemocrats" value="democrats" checked>
+                            <label class="form-check-label" for="checkDemocrats">Democrats</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkIndependents" value="independents" checked>
+                            <label class="form-check-label" for="checkIndependents">Independents</label>
+                        </div>
+                        <select class="form-control-sm mr-1" id="stateDropdown">
+                            <option>All states</option>
+                        </select>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="checkDemocrats" value="democrats" checked>
-                        <label class="form-check-label" for="checkDemocrats">Democrats</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="checkIndependents" value="independents" checked>
-                        <label class="form-check-label" for="checkIndependents">Independents</label>
-                    </div>
-                    <select class="form-control-sm" id="stateDropdown">
-                        <option>All states</option>
-                    </select>
                 </div>
 
-                <table  class="table table-hover  table-responsive{-sm}">
+                <table class="table table-hover  table-responsive{-sm|-md}">
                     <thead class="thead-black">
                         <tr>
                             <th>Senator name</th>
@@ -147,10 +165,16 @@
 
     </main>
 
+    <!--Back to top button-->
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="lni-arrow-up"></i></button>
+
+
     <!--Footer-->
-    <footer class="container-fluid bg-black pl-5 animsition">
-        <div class="col-12">
-        <p class="text-white">©2020 TGIF – All rights reserved – <a class="text-white" href="mailto:info@tgif.net">Contact <i class="lni-arrow-top-right"></i></a></p>
+    <footer class="bg-blackanimsition bg-black">
+        <div class="container-fluid  pl-4 pl-lg-5">
+            <div class="col-12">
+                <p class="text-white">©2020 TGIF – All rights reserved – <a class="text-white" href="mailto:info@tgif.net">Contact <i class="lni-arrow-top-right"></i></a></p>
+            </div>
         </div>
     </footer>
 

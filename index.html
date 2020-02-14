@@ -30,57 +30,72 @@
 </head>
 
 <body>
-
   <!--Header-->
-  <header class="container-fluid" id="index-header">
+  <header class="bg-black">
 
-    <div class="row bg-black p-5">
+    <div class="container-fluid ">
+
+      <div class="row p-4 p-lg-5">
 
         <!--Logo img + text-->
-        <div class="col-5 logo-div">
-          <a href="./index.html"><span class="logo"></span></a>
-          <h1 class="text-white font-weight-light index-link"><a href="./index.html" id="logo-text">Transparent <br>Government in Fact</a></h1>
-      </div>
+        <div class="col-lg-5 col-10 logo-div">
+            <a href="./index.html"><span class="logo"></span></a>
+            <h1 class="text-white font-weight-light index-link"><a href="./index.html" id="logo-text">Transparent <br>Government in Fact</a></h1>
+        </div>
 
         <!--Navbar-->
-        <div class="col-7">
-          <nav class="navbar">
-          <ul class="nav ml-auto">
-              <li class="nav-item">
-              <a class="nav-link animsition-link active" href="./index.html">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
-                  <div class="dropdown-menu">
-                      <a class="dropdown-item animsition-link" href="./senate.html">Senate</a>
-                      <a class="dropdown-item animsition-link" href="./house.html">House</a>
-                  </div>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
-                  <div class="dropdown-menu">
-                      <a class="dropdown-item animsition-link" href="./senate-attendance.html">Senate</a>                        
-                      <a class="dropdown-item animsition-link" href="./house-attendance.html">House</a>
-                  </div>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
-                  <div class="dropdown-menu dropdown-menu-right">
-                      <a class="dropdown-item animsition-link" href="./senate-loyalty.html">Senate</a>                        
-                      <a class="dropdown-item animsition-link" href="./house-loyalty.html">House</a>
-                  </div>
-              </li>
-          </ul>
+        <div class="col-lg-7 col-2">
+          <nav class="navbar navbar-expand-lg">
+
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse">
+                  <ul class="nav ml-auto">
+                      <li class="nav-item">
+                      <a class="nav-link animsition-link active" href="./index.html">Home</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item animsition-link" href="./senate.html">Senate</a>
+                              <a class="dropdown-item animsition-link" href="./house.html">House</a>
+                          </div>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item animsition-link" href="./senate-attendance.html">Senate</a>                        
+                              <a class="dropdown-item animsition-link" href="./house-attendance.html">House</a>
+                          </div>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                              <a class="dropdown-item animsition-link" href="./senate-loyalty.html">Senate</a>                        
+                              <a class="dropdown-item animsition-link" href="./house-loyalty.html">House</a>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
           </nav>
+        </div>
+
       </div>
 
-    </div>
-    <div class="d-flex align-items-end row animsition" style="height: calc(100% - 330px);">
+    </div>    
+
+    <div class="d-flex align-items-end row animsition" id="index-header">
       <div class="col-8 p-5" id="home">
         <h2>Openness, accountability, and honesty define government transparency.</h2>  
       </div>
     </div>
+
   </header>
+
+  
 
 
   <!--Main-->
@@ -203,11 +218,16 @@
 
   </main>
 
+  <!--Back to top button-->
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="lni-arrow-up"></i></button>
+
   <!--Footer-->
-  <footer class="container-fluid bg-black pl-5 animsition">
-    <div class="col-12">
-    <p class="text-white">©2020 TGIF – All rights reserved – <a class="text-white" href="mailto:info@tgif.net">Contact <i class="lni-arrow-top-right"></i></a></p>
-    </div>
+  <footer class="bg-blackanimsition bg-black">
+      <div class="container-fluid  pl-4 pl-lg-5">
+          <div class="col-12">
+              <p class="text-white">©2020 TGIF – All rights reserved – <a class="text-white" href="mailto:info@tgif.net">Contact <i class="lni-arrow-top-right"></i></a></p>
+          </div>
+      </div>
   </footer>
 
   <!--Bootstrap JS-->

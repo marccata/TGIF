@@ -35,8 +35,10 @@ function init(){
     if (page == "senate-attendance.html" || page == "house-attendance.html") {
         attendance();
         attendanceTable();
-        document.getElementById('table-loader').classList.add("d-none-imp");
-        document.getElementById('tables').classList.add("show-table");
+        document.getElementById('table-loader-1').classList.add("d-none-imp");
+        document.getElementById('table-loader-2').classList.add("d-none-imp");
+        document.getElementById('table-loader-3').classList.add("d-none-imp");
+        document.getElementById('senateAttendanceData').classList.add("show-table");
         sortArrayMostEngaged();
         sortArrayLeastEngaged();
     }
@@ -44,8 +46,10 @@ function init(){
     if (page == "senate-loyalty.html" || page == "house-loyalty.html") {
         attendance();
         attendanceTable();
-        document.getElementById('table-loader').classList.add("d-none-imp");
-        document.getElementById('tables').classList.add("show-table");
+        document.getElementById('table-loader-1').classList.add("d-none-imp");
+        document.getElementById('table-loader-2').classList.add("d-none-imp");
+        document.getElementById('table-loader-3').classList.add("d-none-imp");
+        document.getElementById('senateAttendanceData').classList.add("show-table");
         sortArrayMostEngagedLoy();
         sortArrayLeastEngagedLoy();
     }
@@ -396,3 +400,26 @@ function createRow10PctLoy(members, id) {
         document.getElementById(id).appendChild(createTr);
     }
 };
+
+
+//************** BACK TO TOP BUTTON **************
+
+//Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.visibility = "visible";
+  } else {
+    mybutton.style.visibility = "hidden";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}

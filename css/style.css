@@ -212,7 +212,7 @@ tbody td:last-child {
   padding: .5rem;
   padding-left: 20px;
   padding-right: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .inline-flex {
@@ -272,7 +272,7 @@ tbody td:last-child {
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 20px; /* Some padding */
   border-radius: 100%; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
+  font-size: 20px; /* Increase font size */
   
   transition: visibility 0s, opacity 0.5s linear
 
@@ -287,10 +287,10 @@ tbody td:last-child {
 /********* INTRO HEADER HOME *********/
 
 #index-header {
-  height: 100vh;
-	background: linear-gradient(-45deg, black, rgb(180, 130, 255), white);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+  height: calc(100vh - 330px) !important;
+  background: linear-gradient(-45deg, black, rgb(180, 130, 255), white);
+  background-size: 400% 400%;
+	/* TODO animation: gradient 15s ease infinite !important;*/
 }
 
 @keyframes gradient {
@@ -350,6 +350,18 @@ h3 {
   padding-bottom: 20px;
 }
 
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-30-resp {
+  margin-top: 50px;
+}
+
 /********* SHOW TABLES - ATT & LOY LOADER  *********/
 
 .hide-tables {
@@ -357,7 +369,7 @@ h3 {
 }
 
 .show-table {
-  display: block;
+  display: table-row-group;
 }
 
 /********* MOBILE MENU  *********/
@@ -383,6 +395,9 @@ h3 {
     padding-bottom: 10px;
     background-size: 130px 130px;
 
+  }
+  .mt-30-resp {
+    margin-top: 30px;
   }
 }
 
