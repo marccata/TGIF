@@ -6,6 +6,8 @@ var page = path.split("/").pop();
 // CHANGE DATA ROOT DEPENDING OF THE HTML PAGE THE CALL IS COMING FROM
 if (page == "senate.html" || page == "senate-attendance.html" || page == "senate-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/senate/members.json";};
 if (page == "house.html" || page == "house-attendance.html" || page == "house-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/house/members.json";};
+// TODO SOLVE THIS
+if (page == "index.html") {url = "https://api.propublica.org/congress/v1/113/house/members.json";};
 // GET DATA AND SET THE MEMEBERS ARRAY
 var members = '';
 fetch(url, {
@@ -67,6 +69,26 @@ var membersData = {
     totalVotesPct: 0,
 };
 var linkArrow =  '  <i class="lni-arrow-top-right"></i>';
+
+//**************************************************************** HOME PAGE ****************************************************************
+
+// CHANGE READ MORE BUTTON TEXT
+if (page == "index.html") {
+    var textButton = document.getElementById('readMoreBtn');
+    var textButtonOpen = textButton.getAttribute("aria-expanded");
+    
+    document.getElementById('readMoreBtn').addEventListener("click", action);
+
+    function action() {
+        if (textButtonOpen == 'false') {
+            textButton.innerHTML = 'Read Less';
+        } else {
+            // TODO solve this
+            textButton.innerHTML = 'Read More';
+        }
+    }
+};
+
 
 //**************************************************************** SENATE & HOUSE PAGES ****************************************************************
 

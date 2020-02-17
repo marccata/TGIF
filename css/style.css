@@ -339,6 +339,7 @@ h2 {
 
 h3 {
   font-size: 1.5rem;
+  font-weight: 300;
 }
 
 .pt-100 {
@@ -350,8 +351,12 @@ h3 {
 }
 
 .top-line {
-  border-top: black solid 1px;
+  border-top: rgb(204, 204, 204) solid 1px;
   padding-top: 20px;
+}
+
+.top-line-np {
+  border-top: black solid 1px;
 }
 
 .bottom-line {
@@ -369,6 +374,10 @@ h3 {
 
 .mt-30-resp {
   margin-top: 50px;
+}
+
+.row .nomargin {
+  margin: 0px;
 }
 
 /********* SHOW TABLES - ATT & LOY LOADER  *********/
@@ -418,6 +427,6 @@ h3 {
 
 @media (min-width: 1200px){
 .container-fluid {
-    max-width: 1600px;
+    /*max-width: 1600px;*/
 }
 }
