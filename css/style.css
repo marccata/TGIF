@@ -161,6 +161,10 @@ td a:hover {
   color: black;
 }
 
+th {
+  font-weight: 300;
+}
+
 th:first-child {
   border-radius: 40px 0px 0px 40px;
 }
@@ -227,6 +231,10 @@ tbody td:last-child {
   border: solid black 1px;
 }
 
+select {
+  font-weight: 300;
+}
+
 /********* TABLE LOADER *********/
 
 .table-loader {
@@ -265,16 +273,16 @@ tbody td:last-child {
   bottom: 40px; /* Place the button at the bottom of the page */
   right: 40px; /* Place the button 30px from the right */
   z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
   outline: none; /* Remove outline */
   background-color:black; /* Set a background color */
   color: white; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 20px; /* Some padding */
+  padding: 16px; /* Some padding */
   border-radius: 100%; /* Rounded corners */
   font-size: 20px; /* Increase font size */
+  border: solid 1px #E7E6E4;
   
-  transition: visibility 0s, opacity 0.5s linear
+  transition: visibility 0s, opacity 0.5s linear;
 
   width: 60px;
   height: 60px;
@@ -287,10 +295,10 @@ tbody td:last-child {
 /********* INTRO HEADER HOME *********/
 
 #index-header {
-  height: calc(100vh - 330px) !important;
+  height: calc(100vh - 190px) !important;
   background: linear-gradient(-45deg, black, rgb(180, 130, 255), white);
   background-size: 400% 400%;
-	/* TODO animation: gradient 15s ease infinite !important;*/
+	animation: gradient 15s ease infinite !important;
 }
 
 @keyframes gradient {
@@ -326,6 +334,7 @@ h1 {
 
 h2 {
   font-size: 1.4rem;
+  font-weight: 300;
 }
 
 h3 {
@@ -337,7 +346,7 @@ h3 {
 }
 
 #home h2 {
-  font-size: 4.8rem;
+  font-size: 2rem;
 }
 
 .top-line {
@@ -389,6 +398,9 @@ h3 {
   h2 {
     font-size: 2.5rem;
   }
+  #home h2 {
+    font-size: 4.8rem;
+  }
   .logo {
     height: 130px;
     width: 130px;
@@ -398,6 +410,9 @@ h3 {
   }
   .mt-30-resp {
     margin-top: 30px;
+  }
+  #index-header {
+    height: calc(100vh - 330px) !important;
   }
 }
 
