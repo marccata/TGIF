@@ -5,11 +5,11 @@ var path = window.location.pathname;
 var page = path.split("/").pop();
 
 // CHANGE DATA ROOT DEPENDING OF THE HTML PAGE THE CALL IS COMING FROM
-if (page == "senate.html" || page == "senate-attendance.html" || page == "senate-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/senate/members.json"; var pageType = 'senate';}; //TODO MAYBE DELETE THIS
+if (page == "senate.html" || page == "senate-attendance.html" || page == "senate-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/senate/members.json"; var pageType = 'senate';};
 if (page == "house.html" || page == "house-attendance.html" || page == "house-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/house/members.json"; var pageType = 'house';};
 if (page == "index.html") {var pageType = 'home';};
 
-// COMMON OBJECTS FOR ALL PAGES EXCEPT HOME // TODO IF DECLARED AFTER FETCH DON'T WORK, I DON'T KNOW WHY
+// COMMON OBJECTS FOR ALL PAGES EXCEPT HOME
 if (pageType !== 'home') {
     var membersData = {
         numberDemocrats: 0,
@@ -223,7 +223,7 @@ function attendance() {
             membersData.votePctDemocrats = membersData.votePctDemocrats + members[i].votes_with_party_pct;
             break;
         case "R":
-            membersData.numberRepublicans++; //TODO
+            membersData.numberRepublicans++;
             membersData.votePctRepublicans = membersData.votePctRepublicans + members[i].votes_with_party_pct;
             break;
         case "I":
