@@ -5,11 +5,36 @@ var path = window.location.pathname;
 var page = path.split("/").pop();
 
 // CHANGE DATA ROOT DEPENDING OF THE HTML PAGE THE CALL IS COMING FROM
-if (page == "senate.html" || page == "senate-attendance.html" || page == "senate-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/senate/members.json";};
-if (page == "house.html" || page == "house-attendance.html" || page == "house-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/house/members.json";};
+if (page == "senate.html" || page == "senate-attendance.html" || page == "senate-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/senate/members.json"; var pageType = 'senate';}; //TODO MAYBE DELETE THIS
+if (page == "house.html" || page == "house-attendance.html" || page == "house-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/house/members.json"; var pageType = 'house';};
+if (page == "index.html") {var pageType = 'home';};
 
-// IF NOT ON HOME PAGE MAKE FETCH
-if (page !== "index.html") {
+// COMMON OBJECTS FOR ALL PAGES EXCEPT HOME // TODO IF DECLARED AFTER FETCH DON'T WORK, I DON'T KNOW WHY
+if (pageType !== 'home') {
+    var membersData = {
+        numberDemocrats: 0,
+        numberRepublicans: 0,
+        numberIndependents: 0,
+        votePctDemocrats: 0,
+        votePctRepublicans: 0,
+        votePctIndependents: 0,
+        totalMembers: 0,
+        totalVotesPct: 0,
+    };
+    var linkArrow =  '  <i class="lni-arrow-top-right"></i>';
+}
+
+// IF MEMBERS EXISTS ON LOCALSTORAGE && CALL DOESN'T COME FROM HOME PAGE TAKE THEM , OTHERWISE MAKE FETCH
+if (pageType == 'senate' && localStorage.getItem('senateLocal') && pageType !== 'home') {
+    var membersLocal = localStorage.getItem('senateLocal');
+    var members = JSON.parse(membersLocal);
+    init();
+} else if (pageType == 'house' && localStorage.getItem('houseLocal') && pageType !== 'home') {
+    var membersLocal = localStorage.getItem('houseLocal');
+    var members = JSON.parse(membersLocal);
+    init();
+// IF CALL DOESN'T COME FROM HOME PAGE (AND DATA DOESN'T EXIST IN LOCAL), FETCH DATA
+} else if (pageType !== 'home') {
     // GET DATA AND SET THE MEMEBERS ARRAY
     var members;
     fetch(url, {
@@ -20,14 +45,16 @@ if (page !== "index.html") {
     }).then(res => {
         return res.json();
     }).then(data => {
-        const newData = data.results[0].members;
+        const newData = data.results[0].members; // TODO WHY CAN'T I DIRECTLY SET MEMBERS INSTEAD OF GOING BY NEWDATA?
         members = newData;
         init();
+        if (pageType == 'senate') {localStorage.setItem("senateLocal", JSON.stringify(members));};
+        if (pageType == 'house') {localStorage.setItem("houseLocal", JSON.stringify(members));};
     }).catch(function(){
         console.log('Error on loading data source');
     });
+//ELSE (WE GET ONLY HERE IF WE ARE IN HOME PAGE) LOAD HOME PAGE ACTIONS
 } else {
-    // ELSE MAKE HOME PAGE ACTIONS
     openCloseBtn();
 }
 
@@ -60,22 +87,6 @@ function init(){
 
 // COMMON ACTIONS FOR ALL PAGES
 getTopBtn();
-
-// COMMON OBJECTS FOR ALL PAGES EXCEPT HOME
-if (page !== "index.html") {
-    var membersData = {
-        numberDemocrats: 0,
-        numberRepublicans: 0,
-        numberIndependents: 0,
-        votePctDemocrats: 0,
-        votePctRepublicans: 0,
-        votePctIndependents: 0,
-        totalMembers: 0,
-        totalVotesPct: 0,
-    };
-    var linkArrow =  '  <i class="lni-arrow-top-right"></i>';
-}
-
 
 //**************************************************************** HOME PAGE ****************************************************************
 
@@ -212,7 +223,7 @@ function attendance() {
             membersData.votePctDemocrats = membersData.votePctDemocrats + members[i].votes_with_party_pct;
             break;
         case "R":
-            membersData.numberRepublicans++;
+            membersData.numberRepublicans++; //TODO
             membersData.votePctRepublicans = membersData.votePctRepublicans + members[i].votes_with_party_pct;
             break;
         case "I":
