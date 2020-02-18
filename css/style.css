@@ -8,6 +8,14 @@ body {
   color: black;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: rgb(180, 130, 255);
+}
+
 /********* FOOTER *********/
 
 footer {
@@ -149,8 +157,12 @@ footer p {
   border-top-color: transparent;
 } 
 
+.table tr:last-child:hover td {
+  border-bottom-color: transparent;
+}
+
 .table td {
-  border-top-color: black;
+  border-top-color: rgb(204, 204, 204);
 }
 
 td a {
@@ -194,11 +206,35 @@ tbody td:last-child {
 }
 
 .table tr:last-child td {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(204, 204, 204);
 }
 
 .table tbody+tbody {
   border-top: 0px;
+}
+
+/********* TABLE MIN WIDTHS FOR CORRECT PHONE DISPLAY *********/
+
+
+.table th:first-child {
+width: 30%;
+min-width: 185px;
+}
+
+.table th:nth-child(2) {
+  min-width: 65px;
+}
+
+.table th:nth-child(3) {
+  min-width: 65px;
+}
+
+.table th:nth-child(4) {
+  min-width: 140px;
+}
+
+.table th:nth-child(5) {
+  min-width: 140px;
 }
 
 /********* TABLE LINK ARROW *********/
@@ -211,7 +247,7 @@ tbody td:last-child {
 /********* TABLE FILTERS *********/
 
 .filters-row {
-  border: 1px solid black;
+  border: 1px solid rgb(204, 204, 204);
   border-radius: 40px;
   padding: .5rem;
   padding-left: 20px;
@@ -228,22 +264,38 @@ tbody td:last-child {
 .form-control-sm {
   background-color: transparent;
   border-radius: 10px;
-  border: solid black 1px;
+  border: solid rgb(204, 204, 204) 1px;
 }
 
 select {
   font-weight: 300;
 }
 
+.empty-table {
+  background-color: rgb(204, 204, 204);
+  text-align: center;
+}
+
+#empty-table {
+  border-bottom: none;
+  border-top: none;
+  border-radius: 40px;
+  margin-top: 20px;
+}
+
+#empty-table:hover {
+  border-top: none;
+}
+
 /********* TABLE LOADER *********/
 
 .table-loader {
   border: 5px solid transparent; /* Light grey */
-  border-top: 5px black solid; /* Blue */
-  border-bottom: 5px black solid; /* Blue */
+  border-top: 5px rgb(204, 204, 204) solid; /* Blue */
+  border-bottom: 5px rgb(204, 204, 204) solid; /* Blue */
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   animation: spin 1.2s linear infinite;
 }
 
@@ -281,8 +333,9 @@ select {
   border-radius: 100%; /* Rounded corners */
   font-size: 20px; /* Increase font size */
   border: solid 1px #E7E6E4;
-  
-  transition: visibility 0s, opacity 0.5s linear;
+  opacity:0;
+  transition: all .2s ease;
+
 
   width: 60px;
   height: 60px;
@@ -290,6 +343,7 @@ select {
 
 #myBtn:hover {
   background-color: rgb(180, 130, 255); /* Add a dark-grey background on hover */
+  transition: all .2s ease;
 }
 
 /********* INTRO HEADER HOME *********/
@@ -356,11 +410,11 @@ h3 {
 }
 
 .top-line-np {
-  border-top: black solid 1px;
+  border-top: rgb(204, 204, 204) solid 1px;
 }
 
 .bottom-line {
-  border-bottom: black solid 1px;
+  border-bottom: rgb(204, 204, 204) solid 1px;
   padding-bottom: 20px;
 }
 
@@ -427,6 +481,6 @@ h3 {
 
 @media (min-width: 1200px){
 .container-fluid {
-    /*max-width: 1600px;*/
+max-width: 1600px;
 }
 }

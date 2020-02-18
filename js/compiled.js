@@ -1,4 +1,5 @@
-// GET DATA AND CALL PAGE FUNCTIONS AFTER DATA IS LOADED
+//**************************************************************** INITIAL AND COMMON ACTIONS FOR ALL SITE ****************************************************************
+
 // KNOW THE HTML PAGE NAME
 var path = window.location.pathname;
 var page = path.split("/").pop();
@@ -6,29 +7,35 @@ var page = path.split("/").pop();
 // CHANGE DATA ROOT DEPENDING OF THE HTML PAGE THE CALL IS COMING FROM
 if (page == "senate.html" || page == "senate-attendance.html" || page == "senate-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/senate/members.json";};
 if (page == "house.html" || page == "house-attendance.html" || page == "house-loyalty.html") {url = "https://api.propublica.org/congress/v1/113/house/members.json";};
-// TODO SOLVE THIS
-if (page == "index.html") {url = "https://api.propublica.org/congress/v1/113/house/members.json";};
-// GET DATA AND SET THE MEMEBERS ARRAY
-var members = '';
-fetch(url, {
-    method: "GET",
-    headers: {
-    "X-API-Key": "ZRqqZyse9eb9miTFvaBJFfBegzzOTxz3OpxknxxO"
-    }
-}).then(res => {
-    return res.json();
-}).then(data => {
-    const newData = data.results[0].members;
-    members = newData;
-    init();
-}).catch(function(){
-    console.log('Error on loading data source');
-});
+
+// IF NOT ON HOME PAGE MAKE FETCH
+if (page !== "index.html") {
+    // GET DATA AND SET THE MEMEBERS ARRAY
+    var members;
+    fetch(url, {
+        method: "GET",
+        headers: {
+        "X-API-Key": "ZRqqZyse9eb9miTFvaBJFfBegzzOTxz3OpxknxxO"
+        }
+    }).then(res => {
+        return res.json();
+    }).then(data => {
+        const newData = data.results[0].members;
+        members = newData;
+        init();
+    }).catch(function(){
+        console.log('Error on loading data source');
+    });
+} else {
+    // ELSE MAKE HOME PAGE ACTIONS
+    openCloseBtn();
+}
 
 // FUNCTION OF FUNCTIONS DEPENDING ON HTML PAGE
 function init(){
     // SENATE & HOUSE ACTIONS
     if (page == "senate.html" || page == "house.html") {
+        readFilters();
         print(members);
         knowStates(members);
         document.getElementById('table-loader').classList.add("d-none-imp");
@@ -37,10 +44,7 @@ function init(){
     if (page == "senate-attendance.html" || page == "house-attendance.html") {
         attendance();
         attendanceTable();
-        document.getElementById('table-loader-1').classList.add("d-none-imp");
-        document.getElementById('table-loader-2').classList.add("d-none-imp");
-        document.getElementById('table-loader-3').classList.add("d-none-imp");
-        document.getElementById('senateAttendanceData').classList.add("show-table");
+        hideLoaders();
         sortArrayMostEngaged();
         sortArrayLeastEngaged();
     }
@@ -48,43 +52,43 @@ function init(){
     if (page == "senate-loyalty.html" || page == "house-loyalty.html") {
         attendance();
         attendanceTable();
-        document.getElementById('table-loader-1').classList.add("d-none-imp");
-        document.getElementById('table-loader-2').classList.add("d-none-imp");
-        document.getElementById('table-loader-3').classList.add("d-none-imp");
-        document.getElementById('senateAttendanceData').classList.add("show-table");
+        hideLoaders();
         sortArrayMostEngagedLoy();
         sortArrayLeastEngagedLoy();
     }
 };
 
-// GENERAL OBJECTS
-var membersData = {
-    numberDemocrats: 0,
-    numberRepublicans: 0,
-    numberIndependents: 0,
-    votePctDemocrats: 0,
-    votePctRepublicans: 0,
-    votePctIndependents: 0,
-    totalMembers: 0,
-    totalVotesPct: 0,
-};
-var linkArrow =  '  <i class="lni-arrow-top-right"></i>';
+// COMMON ACTIONS FOR ALL PAGES
+getTopBtn();
+
+// COMMON OBJECTS FOR ALL PAGES EXCEPT HOME
+if (page !== "index.html") {
+    var membersData = {
+        numberDemocrats: 0,
+        numberRepublicans: 0,
+        numberIndependents: 0,
+        votePctDemocrats: 0,
+        votePctRepublicans: 0,
+        votePctIndependents: 0,
+        totalMembers: 0,
+        totalVotesPct: 0,
+    };
+    var linkArrow =  '  <i class="lni-arrow-top-right"></i>';
+}
+
 
 //**************************************************************** HOME PAGE ****************************************************************
 
-// CHANGE READ MORE BUTTON TEXT
-if (page == "index.html") {
+// CHANGE READ MORE BUTTON INNER TEXT ON CLICK
+function openCloseBtn() {
     var textButton = document.getElementById('readMoreBtn');
-    var textButtonOpen = textButton.getAttribute("aria-expanded");
-    
     document.getElementById('readMoreBtn').addEventListener("click", action);
-
     function action() {
-        if (textButtonOpen == 'false') {
-            textButton.innerHTML = 'Read Less';
-        } else {
-            // TODO solve this
+        if (textButton.innerHTML == 'Read Less') {
             textButton.innerHTML = 'Read More';
+        } else {
+            console.log('this works');
+            textButton.innerHTML = 'Read Less';
         }
     }
 };
@@ -98,25 +102,26 @@ function print(members) {
     tbody.innerHTML = '';
     for (i = 0; i < members.length; i++) {    
         var createTr = document.createElement("tr");
-        var createTd1 = document.createElement("td");
-        var createTd2 = document.createElement("td");
-        var createTd3 = document.createElement("td");
-        var createTd4 = document.createElement("td");
-        var createTd5 = document.createElement("td");
+        var nameTd = document.createElement("td");
+        var partyTd = document.createElement("td");
+        var stateTd = document.createElement("td");
+        var senirityTd = document.createElement("td");
+        var votesWithPartyTd = document.createElement("td");
         var senatorFullName = members[i].first_name + ' ' + members[i].last_name;
+        // IF SENATOR HAS MIDDLE NAME, ADD IT
         if (members[i].middle_name) {senatorFullName = members[i].first_name + ' ' + members[i].middle_name + ' ' + members[i].last_name;};
-        createTd1.innerHTML = (senatorFullName + linkArrow).link(members[i].url);
-        createTd2.innerHTML = members[i].party;
-        createTd3.innerHTML = members[i].state;
-        createTd4.innerHTML = members[i].seniority;
-        createTd5.innerHTML = members[i].votes_with_party_pct + '%';
-        createTr.append(createTd1, createTd2, createTd3, createTd4, createTd5);
+        nameTd.innerHTML = ("<a target='_blank' href=" + members[i].url + ">" + senatorFullName + linkArrow + "</a>");
+        partyTd.innerHTML = members[i].party;
+        stateTd.innerHTML = members[i].state;
+        senirityTd.innerHTML = members[i].seniority;
+        votesWithPartyTd.innerHTML = members[i].votes_with_party_pct + '%';
+        createTr.append(nameTd, partyTd, stateTd, senirityTd, votesWithPartyTd);
         tbody.appendChild(createTr);
     };
 };
 
 // EVENT LISTENERS OF THE CHECKBOXES
-if (page == "senate.html" || page == "house.html") {
+function readFilters() {
     document.getElementById('checkRepublicans').addEventListener("click", filter);
     document.getElementById('checkDemocrats').addEventListener("click", filter);
     document.getElementById('checkIndependents').addEventListener("click", filter);
@@ -167,28 +172,20 @@ function filter() {
     }
     // IF WE DON'T HAVE RESULTS SHOW EMPTY MESSAGE
     if (filteredMembers == 0) {
-        document.getElementById('tbody-data').innerHTML = 'Your filters do not have a match';
+        document.getElementById('tbody-data').innerHTML = '<div style="height:30px"></div><tr><td class="empty-table" colspan="5" id="empty-table">No results for this filter</td></tr>';
     }    
 };
 
 // FUNCTION TO KNOW HOW MANY STATES THERE ARE IN US (BASED ON MEMBERS EXISTANCE)
 function knowStates(members) {
-    // PUT ALL THE STATES IN THE ARRAY
-    var allStates = [];
     let printStates = [];
-    for (b = 0; b < members.length; b++) {
-        allStates.push(members[b].state); 
-    };
-    // PUT THE REPEATED STATES IN THE DIV/printStates ARRAY
-    for (let i = 0; i < allStates.length; i++) {
-        for (let j = i+1; j < allStates.length; j++) {
-            if (allStates[j] === allStates[i] && !printStates.includes(allStates[i])) { 
-                printStates.push(allStates[i]); 
-            } else if (!printStates.includes(allStates[i])) {
-                printStates.push(allStates[i]); 
-            }
+    // SEND ALL THE STATES IN THE ARRAY IF THEY ARE NOT REPEATED
+    for (let i = 0; i < members.length; i++) {
+        if (!printStates.includes(members[i].state)) { 
+            printStates.push(members[i].state); 
         }
     };
+    // ORDER STATES SO THEY PRINT IN ALPHABETICAL ORDER
     printStates.sort();
     // SEND EACH STATE INTO AN <OPTION> IN HTML TO CREATE DROPDOWN
     for (i = 0; i < printStates.length; i++) {
@@ -267,7 +264,8 @@ function attendanceTable() {
     var independentTd1 = document.createElement("td");
     independentTd1.innerHTML = membersData['numberIndependents'];
     var independentTd2 = document.createElement("td");
-    independentTd2.innerHTML = membersData['votePctIndependents'] + "%";
+    if (membersData.votePctIndependents == 0) {independentTd2.innerHTML = "-----";} // IF THERE ARE NO INDEPENDENTS PRINT '---' IN THE TABLE, '0%' IS NOT RIGHT
+    else {independentTd2.innerHTML = membersData['votePctIndependents'] + "%";} 
     independentTr.append(independentTd1, independentTd2);
     // Suma final
     var sumaTr = document.getElementById('attendanceTableSum');
@@ -340,12 +338,21 @@ function createRow10Pct(members, id) {
         var createTd3 = document.createElement("td");
         var senatorFullName = members[i].first_name + ' ' + members[i].last_name;
         if (members[i].middle_name) {senatorFullName = members[i].first_name + ' ' + members[i].middle_name + ' ' + members[i].last_name;};
-        createTd1.innerHTML = (senatorFullName + linkArrow).link(members[i].url);
+        createTd1.innerHTML = ("<a target='_blank' href=" + members[i].url + ">" + senatorFullName + linkArrow + "</a>");
         createTd2.innerHTML = members[i].missed_votes;
         createTd3.innerHTML = members[i].missed_votes_pct + '%';
         createTr.append(createTd1, createTd2, createTd3);
         document.getElementById(id).appendChild(createTr);
     }
+};
+
+// FUNCTION TO HIDE LOADERS FROM THE TABLES - SHARED FOR ATTENDANCE AND LOYALTY PGS
+function hideLoaders(){
+    document.getElementById('table-loader-1').classList.add("d-none-imp");
+    document.getElementById('table-loader-2').classList.add("d-none-imp");
+    document.getElementById('table-loader-3').classList.add("d-none-imp");
+    // THIS MAKES VISIBLE THE FIRST TABLE, OTHERWISE THE THREE TITLES THAT ALREADY APPEAR IN THE HTML ARE SEEN WHILE LOADERS ARE ON
+    document.getElementById('senateAttendanceData').classList.add("show-table");
 };
 
 //**************************************************************** LOYALTY PAGES ****************************************************************
@@ -414,7 +421,7 @@ function createRow10PctLoy(members, id) {
         var createTd3 = document.createElement("td");
         var senatorFullName = members[i].first_name + ' ' + members[i].last_name;
         if (members[i].middle_name) {senatorFullName = members[i].first_name + ' ' + members[i].middle_name + ' ' + members[i].last_name;};
-        createTd1.innerHTML = (senatorFullName + linkArrow).link(members[i].url);
+        createTd1.innerHTML = ("<a target='_blank' href=" + members[i].url + ">" + senatorFullName + linkArrow + "</a>");
         var votesWithParty = members[i].total_votes * members[i].votes_with_party_pct / 100;
         createTd2.innerHTML = Math.round(votesWithParty);
         createTd3.innerHTML = members[i].votes_with_party_pct + '%';
@@ -423,20 +430,22 @@ function createRow10PctLoy(members, id) {
     }
 };
 
-
-//************** BACK TO TOP BUTTON **************
+//**************************************************************** BACK TO TOP BUTTON ****************************************************************
 
 //Get the button:
+function getTopBtn() {
 mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+}
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.visibility = "visible";
-  } else {
-    mybutton.style.visibility = "hidden";
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.visibility = "visible";
+        mybutton.style.opacity = "1";
+    } else {
+        mybutton.style.visibility = "hidden";
+        mybutton.style.opacity = "0";
   }
 }
 
