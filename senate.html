@@ -27,9 +27,6 @@
   <!--Favicon-->
   <link rel="shortcut icon" type="image/png" href="./img/favicon-250x250.webp"/>
 
-  <!--Vue JS-->
-  <script src='./js/vue.js'></script>
-
 </head>
 
 <body>
@@ -42,21 +39,20 @@
             <div class="row p-4 p-lg-5">
 
                 <!--Logo img + text-->
-                <div class="col-lg-5 col-10 logo-div">
+                <div class="col-lg-5 col-8 logo-div">
                     <a href="./index.html"><span class="logo"></span></a>
                     <h1 class="text-white font-weight-light index-link"><a href="./index.html" id="logo-text">Transparent <br>Government in Fact</a></h1>
                 </div>
 
                 <!--Navbar-->
-                <div class="col-lg-7 col-2">
+                <div class="col-lg-7 col-4">
                     <nav class="navbar navbar-expand-lg">
 
-                        <a class="navbar-brand" href="#"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
-                        <div class="collapse navbar-collapse">
+                        <div class="collapse navbar-collapse"  id="navbarSupportedContent">
                             <ul class="nav ml-auto">
                                 <li class="nav-item">
                                 <a class="nav-link animsition-link" href="./index.html">Home</a>
@@ -93,23 +89,6 @@
 
     </header>
 
-    <div id="app">
-        <h1>{{title}}</h1>
-        <p v-text='content'></p>
-        <input type="text" v-mode>
-    </div>
-
-    <!--VUE TEST-->
-    <script>
-        new Vue({
-            el: '#app',
-            data: {
-                title: 'My title',
-                content: 'Here is my text'
-            }
-        });
-    </script>
-
     <!--Main-->
     <main class="container-fluid animsition">
 
@@ -133,7 +112,7 @@
             <!--Table container-->
             <div class="col-12 col-lg-8">
 
-                <div class="filters-row d-flex justify-content-between mt-30 mt-30-resp">
+                <div class="filters-row d-flex justify-content-between mt-30">
                     <div class="d-flex flex-column flex-lg-row align-items-lg-baseline">
                         <div class="mr-3">
                             <p>Filter by</p>
@@ -208,6 +187,9 @@
     <!-- Animsition page transition -->
     <script src="./js/animsition.min.js"></script>
     <script src="./js/animsition-call.js"></script>
+
+    <!--Compiled JS-->
+    <script src='./js/compiled.js'></script>
 
 </body>
 
