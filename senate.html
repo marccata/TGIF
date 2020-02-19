@@ -27,6 +27,9 @@
   <!--Favicon-->
   <link rel="shortcut icon" type="image/png" href="./img/favicon-250x250.webp"/>
 
+  <!--Vue JS-->
+  <script src='./js/vue.js'></script>
+
 </head>
 
 <body>
@@ -89,6 +92,23 @@
         </div>    
 
     </header>
+
+    <div id="app">
+        <h1>{{title}}</h1>
+        <p v-text='content'></p>
+        <input type="text" v-mode>
+    </div>
+
+    <!--VUE TEST-->
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'My title',
+                content: 'Here is my text'
+            }
+        });
+    </script>
 
     <!--Main-->
     <main class="container-fluid animsition">
@@ -188,9 +208,6 @@
     <!-- Animsition page transition -->
     <script src="./js/animsition.min.js"></script>
     <script src="./js/animsition-call.js"></script>
-
-    <!--Senate JS-->
-    <script src='./js/compiled.js'></script>
 
 </body>
 
