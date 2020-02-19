@@ -24,6 +24,17 @@ if (pageType !== 'home') {
     var linkArrow =  '  <i class="lni-arrow-top-right"></i>';
 }
 
+// LOCAL STORAGE CLEARS IF LAST FETCH WAS MORE THAN 24H AGO
+(function () {
+    var lastclear = localStorage.getItem('lastclear'),
+        time_now  = (new Date()).getTime();
+    // .getTime() returns milliseconds so 1000 * 60 * 60 * 24 = 24 hours
+    if ((time_now - lastclear) > 1000 * 60 * 60 * 24) {
+      localStorage.clear();
+      localStorage.setItem('lastclear', time_now);
+    } 
+})();
+
 // IF MEMBERS EXISTS ON LOCALSTORAGE && CALL DOESN'T COME FROM HOME PAGE TAKE THEM , OTHERWISE MAKE FETCH
 if (pageType == 'senate' && localStorage.getItem('senateLocal') && pageType !== 'home') {
     var membersLocal = localStorage.getItem('senateLocal');
