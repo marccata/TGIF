@@ -117,22 +117,32 @@
             <!--Table container-->
             <div class="col-12 col-lg-8">
 
-                <div class="filters-row d-flex justify-content-between mt-30 mt-30-resp">
-                    <div class="d-flex flex-column flex-lg-row align-items-lg-baseline">
-                        <div class="mr-3">
-                            <p>Filter by</p>
+                <!--Filters-->
+                <div class="filters-row d-flex mt-30 align-items-center">
+                    <div class="filter-title">
+                        <p>Filter by</p>
+                    </div>
+                    <div class="d-flex flex-column flex-lg-row justify-content-around checkbox-row">
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label switch" for="checkRepublicans">
+                                <input type="checkbox" id="checkRepublicans" value="republicans" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <p>Republicans</p>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="checkRepublicans" value="republicans" checked>
-                            <label class="form-check-label" for="checkRepublicans">Republicans</label>
+                            <label class="form-check-label switch" for="checkDemocrats">
+                                <input type="checkbox" id="checkDemocrats" value="democrats" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <p>Democrats</p>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="checkDemocrats" value="democrats" checked>
-                            <label class="form-check-label" for="checkDemocrats">Democrats</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="checkIndependents" value="independents" checked>
-                            <label class="form-check-label" for="checkIndependents">Independents</label>
+                            <label class="form-check-label switch" for="checkIndependents">
+                                <input type="checkbox" id="checkIndependents" value="independents" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <p>Independents</p>
                         </div>
                         <select class="form-control-sm mr-1" id="stateDropdown">
                             <option>All states</option>
