@@ -267,6 +267,10 @@ min-width: 185px;
   border: solid rgb(204, 204, 204) 1px;
 }
 
+.form-check {
+  margin-right: 16px;
+}
+
 select {
   font-weight: 300;
 }
@@ -523,7 +527,7 @@ max-width: 1600px;
   content: "";
   height: 14px;
   width: 14px;
-  left: 0px;
+  left: 1px;
   bottom: 1px;
   background-color: white;
   -webkit-transition: .4s;
@@ -539,9 +543,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(15px);
-  -ms-transform: translateX(15px);
-  transform: translateX(15px);
+  -webkit-transform: translateX(14px);
+  -ms-transform: translateX(14px);
+  transform: translateX(14px);
 }
 
 /* Rounded sliders */
